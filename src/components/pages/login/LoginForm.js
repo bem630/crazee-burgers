@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import styled from "styled-components";
 //import OrderPage from "../order/OrderPage";
 
 const LoginForm = () => {
@@ -25,13 +26,22 @@ const LoginForm = () => {
         // soumission du formalaire
         //collecte de données
     return ( 
-        <form action="" onSubmit={handleSubmit}>
-            <h1>Bienvenue chez nous !</h1><br/>
-            <h2>Connectez vous</h2>
-            <input value={inputValues} onChange={handleChange} type="text" placeholder="Entrez votre prénom" required />
-            <button>Accédez à mon espace</button>
-        </form>
+        <LoginFormStyled action="" onSubmit={handleSubmit}>
+            <div>
+                <h1>Bienvenue chez nous !</h1><br/>
+                <h2>Connectez vous</h2>
+            </div>
+            <div>
+                <input value={inputValues} onChange={handleChange} type="text" placeholder="Entrez votre prénom" required />
+                <button>Accédez à mon espace</button>
+            </div>
+        </LoginFormStyled>
      );
 }
  
 export default LoginForm;
+
+const LoginFormStyled = styled.form`
+  text-align: center;
+  
+`;
