@@ -1,4 +1,5 @@
 import { useState } from "react";
+import LoginForm from "./LoginForm";
 
 const LoginPage = () => {
     // state
@@ -17,6 +18,10 @@ const LoginPage = () => {
     
 
     // affichage (render)
+
+    // création de formulaire 
+    // soumission du formalaire
+    //collecte de données
     return ( 
         <div>
             <h1>Bienvenue chez nous !</h1><br/>
@@ -26,6 +31,7 @@ const LoginPage = () => {
                  type="text" placeholder="Entrez votre prénom..." required />
                 <button>Accédez à votre espace</button>
             </form>
+            <LoginForm/>
         </div>
      );
 }
