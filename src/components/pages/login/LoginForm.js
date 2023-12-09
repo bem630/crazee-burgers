@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
+//import OrderPage from "../order/OrderPage";
 
 const LoginForm = () => {
         // state
@@ -7,7 +9,6 @@ const LoginForm = () => {
         // comportements
         const handleSubmit = (e) => {
         e.preventDefault();
-        alert(`Bonjour ${inputValues}`)
         setInputValue("");
         }
         const handleChange = (e) => {
