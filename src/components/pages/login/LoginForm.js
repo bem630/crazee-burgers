@@ -28,8 +28,8 @@ const LoginForm = () => {
         <form action="" onSubmit={handleSubmit}>
             <h1>Bienvenue chez nous !</h1><br/>
             <h2>Connectez vous</h2>
-            <input value={inputValues} onChange={handleChange} type="text" placeholder="Entrez votre prénom..." required />
-            <button>Accédez à votre espace</button>
+            <input value={inputValues} onChange={handleChange} type="text" placeholder="Entrez votre prénom" required />
+            <button>Accédez à mon espace</button>
         </form>
      );
 }
