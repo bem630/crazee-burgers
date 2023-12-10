@@ -3,7 +3,7 @@ import styled from "styled-components";
 const Logo = () => {
     return ( 
         <LogoStyled>
-            <h1>CRAZYY</h1>
+            <h1>CRAZEE</h1>
                 <img src="/images/logo-orange.png" alt="" />
             <h1>BURGER</h1>
         </LogoStyled>
