@@ -16,10 +16,22 @@ const LoginPage = () => {
 export default LoginPage;
 
 const LoginPageStyled = styled.div`
-  background-color: yellow;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  ::before {
+    content: "";
+    background: url('/images/burger-background.jpg') rgba(0, 0, 0, 0.7);
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    background-blend-mode: darken;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+  }
 `;
