@@ -16,11 +16,24 @@ const LoginPage = () => {
 export default LoginPage;
 
 const LoginPageStyled = styled.div`
-  height: 100vh;
+
+height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url("images/burger-background.jpg");
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: darken;
+
+
+  /*height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  
   ::before {
     content: "";
     background: url('/images/burger-background.jpg') rgba(0, 0, 0, 0.7);
@@ -33,5 +46,6 @@ const LoginPageStyled = styled.div`
     left: 0;
     bottom: 0;
     z-index: -1;
-  }
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url("images/burger-background.jpg");
+  }*/
 `;
