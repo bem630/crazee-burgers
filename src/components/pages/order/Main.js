@@ -3,7 +3,7 @@ import { theme } from "../../../theme";
 
 const Main = () => {
     return ( 
-        <MainStyled className="main">Main</MainStyled>
+        <MainStyled>Main</MainStyled>
      );
 }
  
