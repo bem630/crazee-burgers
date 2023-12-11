@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { theme } from "../../theme";
 
 const PrimaryButton = ({iconChevron, label}) => {
     return ( 
@@ -18,25 +19,25 @@ const PrimaryButtonStyled = styled.button`
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    border-radius: 5px;
+    border-radius: ${theme.borderRadius.round};
     font-size: 15px;
     padding: 18px 24px;
-    font-weight: 800;
+    font-weight: ${theme.fonts.weights.heavy};
     line-height: 1;
-    background-color: #ff9f1b;
-    color: white;
+    background-color: ${theme.colors.primary};
+    color: ${theme.colors.white};
     text-align: center;
     cursor: pointer;
     transition: all 200ms ease-out;
     width: 100%;
     &:hover {
     background-color: #fff;
-    color: #ff9f1b;
+    color: ${theme.colors.primary};
     transition: all 200ms ease-out;
-    border: 1px solid #ff9f1b;
+    border: 1px solid ${theme.colors.primary};
   }
   .icon-btn {
     font-size: 15px;
-    margin-left: 8px;
+    margin-left: ${theme.spacing.xs};
   }
 `;
