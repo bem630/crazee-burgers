@@ -1,6 +1,8 @@
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import { theme } from "../../../theme";
+import Navbar from "./Navbar";
+import Main from "./Main";
 
 const OrderPage = () => {
     const { username } = useParams();
@@ -8,16 +10,8 @@ const OrderPage = () => {
     return ( 
         <OrderPageStyled>
             <div className="container">
-                <div className="navbar">
-                    <div className="leftside">
-                        Logo
-                    </div>
-                    <div className="rightside">
-                        <h1>Bonjour {username} </h1>
-                        <Link to={'/'}><button>Deconnexion</button></Link>
-                    </div>
-                </div>
-                <div className="main">Main</div>
+                <Navbar username = {username} />
+                <Main/>
             </div>
         </OrderPageStyled>
      );
@@ -37,22 +31,5 @@ const OrderPageStyled = styled.div`
     width: 1400px;
     display: flex;
     flex-direction: column;
-    .navbar {
-        background: ${theme.colors.blue};
-        height: 10vh;
-        display: flex;
-        justify-content: space-between;
-        .leftside {
-            background: ${theme.colors.success};
-        }
-        .rightside {
-            background: ${theme.colors.success};
-        }
-    }
-    .main {
-        background: ${theme.colors.background_white};
-        //height: calc( 95vh - 10vh)
-        flex: 1;
-    }
   }
 `;
