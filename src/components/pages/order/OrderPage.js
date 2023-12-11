@@ -8,8 +8,16 @@ const OrderPage = () => {
     return ( 
         <OrderPageStyled>
             <div className="container">
-                <h1>Bonjour {username} </h1>
-                <Link to={'/'}><button>Deconnexion</button></Link>
+                <div className="navbar">
+                    <div className="leftside">
+                        Logo
+                    </div>
+                    <div className="rightside">
+                        <h1>Bonjour {username} </h1>
+                        <Link to={'/'}><button>Deconnexion</button></Link>
+                    </div>
+                </div>
+                <div className="main">Main</div>
             </div>
         </OrderPageStyled>
      );
@@ -27,5 +35,24 @@ const OrderPageStyled = styled.div`
     background: red;
     height: 95vh;
     width: 1400px;
+    display: flex;
+    flex-direction: column;
+    .navbar {
+        background: ${theme.colors.blue};
+        height: 10vh;
+        display: flex;
+        justify-content: space-between;
+        .leftside {
+            background: ${theme.colors.success};
+        }
+        .rightside {
+            background: ${theme.colors.success};
+        }
+    }
+    .main {
+        background: ${theme.colors.background_white};
+        //height: calc( 95vh - 10vh)
+        flex: 1;
+    }
   }
 `;
