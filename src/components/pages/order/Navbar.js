@@ -1,13 +1,12 @@
 import styled from "styled-components";
 import { theme } from "../../../theme";
 import NavbarRightSide from "./NavbarRightSide";
+import Logo from "../../reusable-ui/Logo"
 
 const Navbar = () => {
     return (
         <NavbarStyled>
-            <div className="leftside">
-                <h2>Logo</h2>
-            </div>
+            <Logo/>
             <NavbarRightSide/>
         </NavbarStyled>
      );
@@ -21,8 +20,12 @@ const NavbarStyled = styled.nav`
         height: 10vh;
         display: flex;
         justify-content: space-between;
+        padding: 0 20px;
+        /*
         .leftside {
             background: ${theme.colors.success};
         }
+        <div className="leftside">
+            </div>*/
   
 `;
