@@ -1,10 +1,10 @@
 import styled from "styled-components";
 import Profile from "./Profile";
-const NavbarRightSide = () => {
+const NavbarRightSide = ({ username }) => {
     return ( 
         <NavbarRightSideStyled>
             {/*<div className="admin-button">Admin Button</div>*/}
-            <Profile/>
+            <Profile username={username} />
         </NavbarRightSideStyled>
      );
 }

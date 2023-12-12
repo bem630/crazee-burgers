@@ -4,7 +4,7 @@ import styled from "styled-components"
 import { theme } from "../../../theme";
 
 
-const Profile = ({username}) => {
+const Profile = ({ username }) => {
     return ( 
         <ProfileStyled>
             <div className="info">
