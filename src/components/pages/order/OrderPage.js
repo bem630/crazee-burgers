@@ -28,7 +28,7 @@ const OrderPageStyled = styled.div`
   .container {
     background: red;
     height: 95vh;
-    width: 1400px;
+    width: 1250px; //normalement je dois mettre width: 1400px; comme Vi
     display: flex;
     flex-direction: column;
     border-radius: ${theme.borderRadius.extraRound};
