@@ -7,7 +7,7 @@ const LoginPage = () => {
     
     return ( 
         <LoginPageStyled>
-            <Logo/>
+            <Logo className = {"logo-login-page"} />
             <LoginForm/>
         </LoginPageStyled>
      );
@@ -27,6 +27,9 @@ const LoginPageStyled = styled.div`
     background-position: center;
     background-blend-mode: darken;
 
+    .logo-login-page {
+      transform: scale(2.5);
+    }
 
   /*height: 100vh;
   display: flex;
