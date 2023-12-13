@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import { theme } from "../../../theme";
+import { theme } from "../../../../theme";
 import NavbarRightSide from "./NavbarRightSide";
-import Logo from "../../reusable-ui/Logo"
-import { refreshPage } from "../../../utils/window";
+import Logo from "../../../reusable-ui/Logo"
+import { refreshPage } from "../../../../utils/window";
 
 const Navbar = ({username}) => {
     return (
