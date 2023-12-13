@@ -8,7 +8,20 @@ const Menu = () => {
     return ( 
         <MenuStyled>
             {menu.map((produit) => {
-                return <div className="title-produit">{produit.title}</div>
+                return (
+                    <div className="produit">
+                        <div className="image">
+                            <img src={produit.imageSource} alt={produit.title} />
+                        </div>
+                        <div className="info-text">
+                            <div className="title">{produit.title}</div>
+                            <div className="description">
+                                <div className="price">{produit.price}</div>
+                                <button className="add-button">Ajouter</button>
+                            </div>
+                        </div>
+                    </div>
+                )
                 } )}
         </MenuStyled>
      );
@@ -26,11 +39,19 @@ const MenuStyled = styled.div`
     justify-items: center;
     
 
-    .title-produit {
+    .produit {
         background: red;
         width: 240px;
         height: 330px;
         //box-shadow: -8px 8px 20px 0px rgba(0, 0, 0, 20%);
+        .image {
+            width: 240px;
+            height: 145px;
+            img {
+            width: 100%;
+            height: 100%;
+        }
+        }
     }
         
 `;
