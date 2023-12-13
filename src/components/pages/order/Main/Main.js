@@ -1,13 +1,14 @@
 import styled from "styled-components";
 import { theme } from "../../../../theme";
+import Menu from "./Menu";
 
 
 const Main = () => {
     
     return ( 
         <MainStyled>
-            <div className="basket">Basket</div>
-            <div className="menu">Menu</div>
+            <div className="basket">Basket</div>*
+            <Menu/>
         </MainStyled>
      );
 }
@@ -27,9 +28,7 @@ const MainStyled = styled.div`
         .basket {
             background: blue;
         }
-        .menu {
-            background: yellow;
-        }
+        
         
 
         /*!SECTION
