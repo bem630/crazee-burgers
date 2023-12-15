@@ -1,9 +1,10 @@
 import styled from "styled-components";
 import Profile from "./Profile";
+import ToggleButton from "../../../reusable-ui/ToggleButton"
 const NavbarRightSide = ({ username }) => {
     return ( 
         <NavbarRightSideStyled>
-            {/*<div className="admin-button">Admin Button</div>*/}
+            <ToggleButton  />
             <Profile username={username} />
         </NavbarRightSideStyled>
      );
