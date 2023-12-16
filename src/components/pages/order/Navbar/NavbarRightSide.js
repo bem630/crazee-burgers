@@ -1,10 +1,11 @@
 import styled from "styled-components";
 import Profile from "./Profile";
 import ToggleButton from "./ToggleButton";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
-import { theme } from "../../../../theme";
+//import { theme } from "../../../../theme";
 import { useState } from "react";
+import ToastAdmin from "./ToastAdmin";
 //import ToggleButton from "../../../reusable-ui/ToggleButton"
 const NavbarRightSide = ({ username }) => {
     const [isModeAmin, setIsModeAmin] = useState(false);
@@ -26,10 +27,9 @@ const NavbarRightSide = ({ username }) => {
     }
     return ( 
         <NavbarRightSideStyled>
-            <ToggleButton labelIfUnchecked="activer le mode admin" labelIfChecked="desactiver le mode admin"
-            className="toaster" bodyClassName="body-toast" onToggle={displayToastNotification}  />
-            <Profile username={username} />
-            <ToastContainer />
+            <ToggleButton labelIfUnchecked="activer le mode admin" labelIfChecked="desactiver le mode admin" onToggle={displayToastNotification}  />
+            <Profile username={username} />   
+            <ToastAdmin/>   
         </NavbarRightSideStyled>
      );
 }
@@ -40,22 +40,5 @@ const NavbarRightSideStyled = styled.div`
     display: flex;
     align-items: center;
     padding-right: 50px;
-
-    .toaster {
-    max-width: 300px;
-  }
-
-  .Toastify__toast.Toastify__toast-theme--dark.Toastify__toast--info {
-    background: ${theme.colors.background_dark};
-  }
-
-  .body-toast {
-    .Toastify__toast-icon.Toastify--animate-icon.Toastify__zoom-enter {
-      margin-right: 20px;
-      margin-left: 5px;
-    }
-    div {
-      line-height: 1.3em;
-    }
-  }
+    
 `;
