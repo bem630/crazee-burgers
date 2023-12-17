@@ -1,9 +1,9 @@
 import styled from "styled-components";
 import { theme } from "../../theme";
 
-const Tab = ({ Icon }) => {
+const Tab = ({ Icon, onClick, className }) => {
     return ( 
-        <TabStyled>
+        <TabStyled onClick={onClick} className={className}>
             <div className="icon">{ Icon && Icon }</div>
             {/*<button>Ajouter un produit</button>
             <button>Modifier un produit</button>*/}
@@ -35,9 +35,9 @@ const TabStyled = styled.button`
     left: 4%;
     top: 1px;
 
-    :hover {
+    /*:hover {
         border-bottom: 2px solid  ${theme.colors.white};
-    }
+    }*/
 
     .icon {
         display: flex;
