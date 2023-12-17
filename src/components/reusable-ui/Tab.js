@@ -1,12 +1,12 @@
 import styled from "styled-components";
 import { theme } from "../../theme";
 
-const Tab = ({ Icon, onClick, className }) => {
+const Tab = ({ Icon, onClick, className, label1, label2 }) => {
     return ( 
         <TabStyled onClick={onClick} className={className}>
             <div className="icon">{ Icon && Icon }</div>
-            {/*<button>Ajouter un produit</button>
-            <button>Modifier un produit</button>*/}
+            {label1 && <span className="label">{label1}</span>}
+            {label2 && <span className="label">{label2}</span>}
         </TabStyled>
      );
 }
@@ -41,5 +41,8 @@ const TabStyled = styled.button`
 
     .icon {
         display: flex;
+    }
+    .label {
+        margin-left: 13px;
     }
 `;

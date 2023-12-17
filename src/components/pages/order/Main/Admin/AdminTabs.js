@@ -2,6 +2,8 @@ import styled from "styled-components";
 import { theme } from "../../../../../theme";
 import Tab from "../../../../reusable-ui/Tab";
 import { FiChevronDown, FiChevronUp } from "react-icons/fi";
+import { AiOutlinePlus } from "react-icons/ai";
+import { MdModeEditOutline } from "react-icons/md";
 
 const AdminTabs = ({isCollapsed,setIsCollapsed}) => {
 
@@ -12,7 +14,15 @@ const AdminTabs = ({isCollapsed,setIsCollapsed}) => {
 
     return ( 
         <AdminTabsStyled>
-            <Tab Icon = {isCollapsed ? <FiChevronUp/> : <FiChevronDown/>} 
+            <Tab label="" Icon = {isCollapsed ? <FiChevronUp/> : <FiChevronDown/>} 
+            onClick = {handleClick} 
+            className={isCollapsed ? "is-active" : ""}
+            />
+            <Tab label1="Ajouter un produit" Icon = {<AiOutlinePlus />} 
+            onClick = {handleClick} 
+            className={isCollapsed ? "is-active" : ""}
+            />
+            <Tab label2="Modifier un produit" Icon = {<MdModeEditOutline />} 
             onClick = {handleClick} 
             className={isCollapsed ? "is-active" : ""}
             />
@@ -30,5 +40,8 @@ const AdminTabsStyled = styled.div`
         background: ${theme.colors.background_dark};
         border-color: ${theme.colors.background_dark} ;
         color: ${theme.colors.white};
+    }
+    button {
+        margin-left: 1px;
     }
 `;
