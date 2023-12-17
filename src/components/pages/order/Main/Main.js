@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { theme } from "../../../../theme";
 import Menu from "./Menu";
+import Admin from "./Admin/Admin";
 
 
 const Main = () => {
@@ -10,7 +11,7 @@ const Main = () => {
             {/*<div className="basket">Basket</div>*/}
             <div className="menu-and-admin">
                 <Menu/>
-                <div className="admin">Admin</div>
+                <Admin/>
             </div>
         </MainStyled>
      );
@@ -35,10 +36,7 @@ const MainStyled = styled.div`
         .menu-and-admin {
             overflow-y: hidden;
             display: grid;
-            .admin {
-            background-color: red;
-            height: 250px;
-        }
+            
         }
         
 `;
