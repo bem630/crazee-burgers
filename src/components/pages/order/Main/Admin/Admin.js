@@ -1,11 +1,15 @@
 import styled from "styled-components";
-import { theme } from "../../../../../theme";
+//import { theme } from "../../../../../theme";
+import AdminTabs from "./AdminTabs";
+import AdminPanel from "./AdminPanel";
 
 
 const Admin = () => {
     
     return ( 
-        <AdminStyled className="admin">Admin
+        <AdminStyled className="admin">
+            <AdminTabs/>
+            <AdminPanel/>
         </AdminStyled>
      );
 }
@@ -13,9 +17,5 @@ const Admin = () => {
 export default Admin;
 
 const AdminStyled = styled.div`
-    background-color: ${theme.colors.white};
-    box-shadow: ${theme.shadows.subtle};
-    border: 1px solid ${theme.colors.greyLight};
-    height: 250px;
-        
+    
 `;
