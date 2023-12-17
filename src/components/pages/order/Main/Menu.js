@@ -26,8 +26,9 @@ const MenuStyled = styled.div`
     display: grid;
     grid-row-gap: 60px;
     grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(270px,1fr));
     padding: 50px 50px 150px;
     justify-items: center;
-    
+    overflow-y: scroll;
         
 `;
