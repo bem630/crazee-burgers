@@ -1,9 +1,12 @@
 import styled from "styled-components";
 import { theme } from "../../../../../theme";
 
+
 const Admin = () => {
+    
     return ( 
-        <AdminStyled className="admin">Admin</AdminStyled>
+        <AdminStyled className="admin">Admin
+        </AdminStyled>
      );
 }
  
