@@ -1,12 +1,11 @@
 import styled from "styled-components";
 import { theme } from "../../theme";
 
-const Tab = ({ Icon, onClick, className, label1, label2 }) => {
+const Tab = ({ Icon, onClick, className, label}) => {
     return ( 
         <TabStyled onClick={onClick} className={className}>
-            <div className="icon">{ Icon && Icon }</div>
-            {label1 && <span className="label">{label1}</span>}
-            {label2 && <span className="label">{label2}</span>}
+            {Icon && <div className="icon">{ Icon }</div>}
+            {label && <span className="label">{label}</span>}
         </TabStyled>
      );
 }
