@@ -4,7 +4,7 @@ import OrderContext from "../../../../../context/OrderContext";
 import { useContext } from "react";
 
 const AdminPanel = () => {
-    const {isCollapsed,setIsCollapsed,isEditSelected, setIsEditSelected, isAddSelected, setIsAddSelected} = useContext(OrderContext);
+    const {isEditSelected, isAddSelected} = useContext(OrderContext);
 
     return ( 
         <AdminPanelStyled>
