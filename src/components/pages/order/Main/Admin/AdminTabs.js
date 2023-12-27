@@ -2,15 +2,23 @@ import styled from "styled-components";
 import { theme } from "../../../../../theme";
 import Tab from "../../../../reusable-ui/Tab";
 import { FiChevronDown, FiChevronUp } from "react-icons/fi";
-import { AiOutlinePlus } from "react-icons/ai";
-import { MdModeEditOutline } from "react-icons/md";
 import { useContext } from "react";
 import OrderContext from "../../../../../context/OrderContext";
+import { getTabsConfig } from "./getTabsConfig";
 //import { useState } from "react";
 
 const AdminTabs = () => {
     
-    const {isCollapsed,setIsCollapsed,isEditSelected, setIsEditSelected, isAddSelected, setIsAddSelected} = useContext(OrderContext);
+    const {
+        isCollapsed,
+        setIsCollapsed,
+        /*isEditSelected,
+        setIsEditSelected,
+        isAddSelected,
+        setIsAddSelected,*/
+        currentTabSelected,
+        setcurrentTabSelected
+    } = useContext(OrderContext);
     
 /*
     const selectEditTab = () => { 
@@ -23,39 +31,21 @@ const AdminTabs = () => {
         setIsEditSelected(false) ;
         setIsAddSelected(true);
     }*/
-
+    const tab = getTabsConfig(currentTabSelected);
     const selectTab = (tabSelected) => {
-        setIsCollapsed(false); 
-        if (tabSelected === "add") {
+        setIsCollapsed(false); //ouvre moi le panel dans tous les cas
+        /*if (tabSelected === "add") {
             setIsAddSelected(true);
             setIsEditSelected(false) ;
         }
         if (tabSelected === "edit") {
             setIsEditSelected(true) ;
             setIsAddSelected(false);
-        }
+        }*/
+        setcurrentTabSelected(tabSelected);//reactualise l'onglet selectionné
     }
 
-    const tabsConfig = [
-        {
-            label: "",
-            Icon: isCollapsed ? <FiChevronUp/> : <FiChevronDown/>,
-            onClick: () => { setIsCollapsed(!isCollapsed)},
-            className: isCollapsed ? "is-active" : "",
-        },
-        {
-            label: "Ajouter un produit",
-            Icon: <AiOutlinePlus />,
-            onClick: ()=> selectTab("add"),
-            className: isAddSelected ? "is-active" : "",
-        },
-        {
-            label: "Modifier un produit",
-            Icon: <MdModeEditOutline />,
-            onClick: ()=> selectTab("edit"),
-            className: isEditSelected ? "is-active" : "",
-        }
-    ]
+    
 
     return ( 
         <AdminTabsStyled>
@@ -75,11 +65,16 @@ const AdminTabs = () => {
                 onClick = { ()=> selectTab("edit")} 
                 className={isEditSelected ? "is-active" : ""}
             />*/}
-            {tabsConfig.map((tabs) =>{
+            <Tab 
+                Icon= {isCollapsed ? <FiChevronUp/> : <FiChevronDown/>}
+                onClick = { () => { setIsCollapsed(!isCollapsed)} }
+                className={isCollapsed ? "is-active" : ""}
+            />
+            {tab.map((tabs) =>{
                 return <Tab 
                 label={tabs.label}
                 Icon = {tabs.Icon} 
-                onClick = {tabs.onClick} 
+                onClick = {() => { selectTab(tabs.index)}} 
                 className={tabs.className}
             />
             })}

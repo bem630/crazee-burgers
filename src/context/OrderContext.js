@@ -9,4 +9,6 @@ export default createContext({
     setIsModeAdmin: () => {},
     isAddSelected: false,
     setIsAddSelected: () => {},
+    currentTabSelected: () => {},
+    setcurrentTabSelected: () => {},
 })
