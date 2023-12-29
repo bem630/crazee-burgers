@@ -1,6 +1,5 @@
 import { AiOutlinePlus } from "react-icons/ai";
 import { MdModeEditOutline } from "react-icons/md";
-import { BiSun } from "react-icons/bi"
 
 export const getTabsConfig = (currentTabSelected) => [
     /*{
@@ -26,11 +25,7 @@ export const getTabsConfig = (currentTabSelected) => [
         //className: currentTabSelected === "edit" ? "is-active" : "",
         //className: isEditSelected ? "is-active" : "",
     },
-    {
-        index: "theme",
-        label: "Changer un produit",
-        Icon: <BiSun />,
-    }
+    
 ];
 
 export const getTabSelected = (tab, currentTabSelected) => 
