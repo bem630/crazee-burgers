@@ -71,7 +71,8 @@ const AdminTabs = () => {
                 className={isCollapsed ? "is-active" : ""}
             />
             {tab.map((tabs) =>{
-                return <Tab 
+                return <Tab
+                key={tabs.index} 
                 label={tabs.label}
                 Icon = {tabs.Icon} 
                 onClick = {() => { selectTab(tabs.index)}} 
