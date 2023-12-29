@@ -74,7 +74,7 @@ const AdminTabs = () => {
                 return <Tab
                 key={tabs.index} 
                 label={tabs.label}
-                Icon = {tabs.Icon} 
+                Icon = {tabs.Icon}
                 onClick = {() => { selectTab(tabs.index)}} 
                 className={currentTabSelected === tabs.index ? "is-active" : ""}
             />
