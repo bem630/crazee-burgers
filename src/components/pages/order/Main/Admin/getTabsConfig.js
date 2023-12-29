@@ -25,7 +25,6 @@ export const getTabsConfig = (currentTabSelected) => [
         //className: currentTabSelected === "edit" ? "is-active" : "",
         //className: isEditSelected ? "is-active" : "",
     },
-    
 ];
 
 export const getTabSelected = (tab, currentTabSelected) => 
