@@ -5,6 +5,7 @@ import Navbar from "./Navbar/Navbar";
 import Main from "./Main/Main";
 import { useState } from "react";
 import OrderContext from "../../../context/OrderContext";
+import { fakeMenu } from "../../../fakeData/fakeMenu"
 
 const OrderPage = () => {
     //const { username } = useParams();
@@ -13,6 +14,13 @@ const OrderPage = () => {
     const [isEditSelected, setIsEditSelected] = useState(false);
     const [isAddSelected, setIsAddSelected] = useState(true);
     const [currentTabSelected, setcurrentTabSelected] = useState("add");
+    const [menu, setMenu] = useState(fakeMenu.LARGE);
+    
+    const handleAddProduit = (newProduit) => { 
+        const menuCopy = [...menu];
+        const menuUpdated = [newProduit, ...menuCopy];
+        setMenu(menuUpdated);
+     }
 
     const orderContextValue = {
       isModeAdmin, 
@@ -25,6 +33,9 @@ const OrderPage = () => {
       setIsAddSelected,
       currentTabSelected,
       setcurrentTabSelected,
+      menu,
+      setMenu,
+      handleAddProduit,
     }
     
     return ( 

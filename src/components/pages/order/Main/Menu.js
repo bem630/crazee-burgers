@@ -1,17 +1,26 @@
-import { useState } from "react";
+//import { useState } from "react";
 import styled from "styled-components";
-import { fakeMenu } from "../../../../fakeData/fakeMenu"
+//import { fakeMenu } from "../../../../fakeData/fakeMenu"
 import { theme } from "../../../../theme";
 import Card from "../../../reusable-ui/Card";
 import { formatPrice } from "../../../../utils/maths"
+import { useContext } from "react";
+import OrderContext from "../../../../context/OrderContext";
 
 const Menu = () => {
-    const [menu, setMenu] = useState(fakeMenu.LARGE);
+    const {menu} = useContext(OrderContext);
+    
+    //const [menu, setMenu] = useState(fakeMenu.LARGE);
     return ( 
         <MenuStyled>
             {menu.map(({id, imageSource, title, price}) => {
                 return (
-                    <Card key={id} imageSource ={imageSource} title={title} leftDescription={formatPrice(price)} />
+                    <Card 
+                        key={id} 
+                        imageSource ={imageSource} 
+                        title={title} 
+                        leftDescription={formatPrice(price)} 
+                    />
                 )
                 } )}
         </MenuStyled>
