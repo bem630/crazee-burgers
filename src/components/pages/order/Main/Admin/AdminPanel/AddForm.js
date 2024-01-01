@@ -7,10 +7,20 @@ import { useContext } from "react";
 import OrderContext from "../../../../../../context/OrderContext";
 
 const AddForm = () => {
+    
     const {handleAddProduit} = useContext(OrderContext);
+
+    const newProduit = 
+        {
+            id: new Date().getTime(),
+            title: "Nouveau Produit",
+            price: 2.5,
+            imageSource: "https://fr.freepik.com/photos-gratuite/burger-savoureux-isole-fond-blanc-restauration-rapide-hamburger-frais-du-boeuf-du-fromage_38117312.htm#query=burgers%20png&position=0&from_view=keyword&track=ais&uuid=dba9ea5c-9b07-4e9a-8f5e-134c2722ea8d",
+        }
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        handleAddProduit();
+        handleAddProduit(newProduit);
     }
     
     return ( 
