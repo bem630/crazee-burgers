@@ -3,36 +3,66 @@ import { BsFillCameraFill } from "react-icons/bs";
 //import { MdOutlineEuro } from "react-icons/md";
 import styled from "styled-components";
 import { theme } from "../../../../../../theme";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import OrderContext from "../../../../../../context/OrderContext";
 
 const AddForm = () => {
-    
     const {handleAddProduit} = useContext(OrderContext);
 
-    const newProduit = 
-        {
-            id: new Date().getTime(),
-            title: "Nouveau Produit",
-            price: 2.5,
-            imageSource: "https://fr.freepik.com/photos-gratuite/burger-savoureux-isole-fond-blanc-restauration-rapide-hamburger-frais-du-boeuf-du-fromage_38117312.htm#query=burgers%20png&position=0&from_view=keyword&track=ais&uuid=dba9ea5c-9b07-4e9a-8f5e-134c2722ea8d",
-        }
+    const [title, setTitle] = useState("");
+    const [imageSource, setImageSource] = useState("");
+    const [price, setPrice] = useState(0);
+    const handleTitleChange =(e)=> {
+        setTitle(e.target.value);
+    }
+    const handleImageSourceChange =(e)=> {
+        setImageSource(e.target.value);
+    }
+    const handlePriceChange =(e)=> {
+        setPrice(e.target.value);
+    }
+    
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        const newProduit = 
+        {
+            id: new Date().getTime(),
+            title: title,
+            price: price,
+            imageSource: imageSource,
+        }
         handleAddProduit(newProduit);
     }
     
     return ( 
             <AddFormStyled action="submit" onSubmit={handleSubmit}>
-                <div className="image-preview">ImagePreview</div>
+                <div className="image-preview">Aucune image</div>
                 <div className="input-fields">
                         {/*<FaHamburger className="icon" />*/}
-                        <input type="text" placeholder="Produit (ex: Super Burger)" />
+                        <input 
+                            value={title}
+                            type="text"
+                            placeholder="Produit (ex: Super Burger)"
+                            onChange={handleTitleChange}
+                            />
                         {/*<BsFillCameraFill className="icon"/>*/}
-                        <input type="url" name="url" placeholder="Lien URL d'une image (ex: https://la-photo-de-mon-produit.png)" />
+                        <input 
+                            type="text"
+                            name="url" 
+                            placeholder="Lien URL d'une image (ex: https://la-photo-de-mon-produit.png)"
+                            value={imageSource}
+                            onChange={handleImageSourceChange}
+                            />
                         {/*<BsFillCameraFill className="icon"/>*/}
-                        <input type="number" name="Prix" id="Prix" placeholder="Prix"/>
+                        <input 
+                            type="text"
+                            name="Prix"
+                            id="Prix"
+                            placeholder="Prix"
+                            value={price ? price: "" }
+                            onChange={handlePriceChange}
+                        />
                     
                 </div>
                 <button className="submit-button">Ajouter un nouveau produit au menu</button>
