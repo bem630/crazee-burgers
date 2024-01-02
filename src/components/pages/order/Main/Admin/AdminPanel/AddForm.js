@@ -10,7 +10,7 @@ const EmptyProduct = {
     id: "",
     title: "",
     imageSource: "",
-    price: 14,
+    price: 0,
 }
 
 const AddForm = () => {
