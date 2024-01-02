@@ -55,7 +55,13 @@ const AddForm = () => {
     
     return ( 
             <AddFormStyled action="submit" onSubmit={handleSubmit}>
-                <div className="image-preview">Aucune image</div>
+                <div className="image-preview">
+                    {newProduct.imageSource ? (
+                        <img src={newProduct.imageSource} alt={newProduct.title} />
+                        ) : (
+                            <div>Aucune image</div>
+                            )}
+                </div>
                 <div className="input-fields">
                         {/*<FaHamburger className="icon" />*/}
                         <input
@@ -100,24 +106,26 @@ const AddFormStyled = styled.form`
     width: 70%;
     grid-template-columns: 1fr 3fr;
     grid-template-rows: repeat(4, 1fr);
-    grid-gap: 2px;
     .image-preview {
         background: red;
-        grid-column: 1 / 2;
-        grid-row: 1 / 4;
+        grid-area: 1 / 1 / 4 / 2;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: center;
+        }
     }
     .input-fields {
-        background: red;
-        grid-column: 2/ span 3;
-        grid-row: 1/ span 3;
+        background: blue;
+        grid-area: 1 / 2 / -2 / 3;
         
         display: grid;
-        grid-template-columns: 1;
-        grid-template-rows: 3fr;
     }
     .submit-button {
         background: green;
-        grid-column: 2 / span 3;
+        grid-area: 4 / -2 / -1 / -1;
         width: 50%;
     }
     
