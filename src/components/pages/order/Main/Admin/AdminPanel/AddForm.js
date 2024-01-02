@@ -44,6 +44,7 @@ const AddForm = () => {
             imageSource: newProduct.imageSource,*/
         }
         handleAddProduit(newProduitToadd);
+        setNewProduct(EmptyProduct);
     }
 
     const handleChange = (e) => {
@@ -75,7 +76,7 @@ const AddForm = () => {
                         <input 
                             type="text"
                             name="imageSource" 
-                            placeholder="Lien URL d'une image"
+                            placeholder="Lien URL d'une image(ex: https://photo-frites.png)"
                             value={newProduct.imageSource}
                             onChange={handleChange}
                             />
