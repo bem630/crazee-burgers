@@ -6,9 +6,17 @@ import { theme } from "../../../../../../theme";
 import { useContext, useState } from "react";
 import OrderContext from "../../../../../../context/OrderContext";
 
+const EmptyProduct = {
+    id: "",
+    title: "",
+    imageSource: "",
+    price: 14,
+}
+
 const AddForm = () => {
     const {handleAddProduit} = useContext(OrderContext);
-
+    const [newProduct, setNewProduct] = useState(EmptyProduct);
+    /*
     const [title, setTitle] = useState("");
     const [imageSource, setImageSource] = useState("");
     const [price, setPrice] = useState(0);
@@ -21,18 +29,26 @@ const AddForm = () => {
     const handlePriceChange =(e)=> {
         setPrice(e.target.value);
     }
+    */
     
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const newProduit = 
+        const newProduitToadd = 
         {
+            ...newProduct,
             id: new Date().getTime(),
-            title: title,
-            price: price,
-            imageSource: imageSource,
+            /*title: newProduct.title,
+            price: newProduct.price,
+            imageSource: newProduct.imageSource,*/
         }
-        handleAddProduit(newProduit);
+        handleAddProduit(newProduitToadd);
+    }
+
+    const handleChange = (e) => {
+        const newValue = e.target.value;
+        const name = e.target.name;
+        setNewProduct({ ...newProduct, [name]: newValue });
     }
     
     return ( 
@@ -40,28 +56,29 @@ const AddForm = () => {
                 <div className="image-preview">Aucune image</div>
                 <div className="input-fields">
                         {/*<FaHamburger className="icon" />*/}
-                        <input 
-                            value={title}
+                        <input
+                            name="title" 
+                            value={newProduct.title}
                             type="text"
                             placeholder="Produit (ex: Super Burger)"
-                            onChange={handleTitleChange}
+                            onChange={handleChange}
                             />
                         {/*<BsFillCameraFill className="icon"/>*/}
                         <input 
                             type="text"
-                            name="url" 
-                            placeholder="Lien URL d'une image (ex: https://la-photo-de-mon-produit.png)"
-                            value={imageSource}
-                            onChange={handleImageSourceChange}
+                            name="imageSource" 
+                            placeholder="Lien URL d'une image"
+                            value={newProduct.imageSource}
+                            onChange={handleChange}
                             />
                         {/*<BsFillCameraFill className="icon"/>*/}
                         <input 
                             type="text"
-                            name="Prix"
+                            name="price"
                             id="Prix"
                             placeholder="Prix"
-                            value={price ? price: "" }
-                            onChange={handlePriceChange}
+                            value={newProduct.price ? newProduct.price: "" }
+                            onChange={handleChange}
                         />
                     
                 </div>
