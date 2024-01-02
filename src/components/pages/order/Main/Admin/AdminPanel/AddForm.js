@@ -37,8 +37,9 @@ const AddForm = () => {
         const newProduitToadd = 
         {
             ...newProduct,
-            id: new Date().getTime(),
-            /*title: newProduct.title,
+            id: crypto.randomUUID(),
+            /*id: new Date().getTime(),
+            title: newProduct.title,
             price: newProduct.price,
             imageSource: newProduct.imageSource,*/
         }
@@ -46,9 +47,10 @@ const AddForm = () => {
     }
 
     const handleChange = (e) => {
-        const newValue = e.target.value;
-        const name = e.target.name;
-        setNewProduct({ ...newProduct, [name]: newValue });
+        /*const newValue = e.target.value;
+        const name = e.target.name;*/
+        const { name, value } = e.target;
+        setNewProduct({ ...newProduct, [name]: value });
     }
     
     return ( 
