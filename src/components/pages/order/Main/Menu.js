@@ -10,7 +10,7 @@ import OrderContext from "../../../../context/OrderContext";
 const IMAGE_BY_DEFAULT = "/images/coming-soon.png";
 
 const Menu = () => {
-    const {menu} = useContext(OrderContext);
+    const {menu,isModeAdmin} = useContext(OrderContext);
     
     //const [menu, setMenu] = useState(fakeMenu.LARGE);
     return ( 
@@ -23,6 +23,7 @@ const Menu = () => {
                         //imageSource ={imageSource === "" ? "/images/coming-soon.png" : imageSource} 
                         title={title} 
                         leftDescription={formatPrice(price)} 
+                        hasDeleteButton = {isModeAdmin}
                     />
                 )
                 } )}
