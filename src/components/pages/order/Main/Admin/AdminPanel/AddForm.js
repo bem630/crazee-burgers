@@ -1,6 +1,7 @@
 import { FaHamburger } from "react-icons/fa";
 import { BsFillCameraFill } from "react-icons/bs";
 //import { MdOutlineEuro } from "react-icons/md";
+import { FiCheck } from "react-icons/fi";
 import styled from "styled-components";
 import { theme } from "../../../../../../theme";
 import { useContext, useState } from "react";
@@ -16,6 +17,7 @@ const EmptyProduct = {
 const AddForm = () => {
     const {handleAddProduit} = useContext(OrderContext);
     const [newProduct, setNewProduct] = useState(EmptyProduct);
+    const [isSubmitted, setIsSubmitted] = useState(false);
     /*
     const [title, setTitle] = useState("");
     const [imageSource, setImageSource] = useState("");
@@ -45,6 +47,14 @@ const AddForm = () => {
         }
         handleAddProduit(newProduitToadd);
         setNewProduct(EmptyProduct);
+        setIsSubmitted(true);
+        displaySuccesMessage();
+    }
+
+    const displaySuccesMessage = () => {
+        setTimeout(()=> {
+            setIsSubmitted(false)
+        } , 2000)
     }
 
     const handleChange = (e) => {
@@ -91,7 +101,14 @@ const AddForm = () => {
                         />
                     
                 </div>
-                <button className="submit-button">Ajouter un nouveau produit au menu</button>
+                <div className="submit">
+                    <button className="submit-button">Ajouter un nouveau produit au menu</button>
+                    {isSubmitted && ( 
+                        <div className="submit-message">
+                            <FiCheck />
+                            <span>Ajouté avec succès</span>
+                        </div>)}
+                </div>
                 {/*<input type="image" src="" alt="Aucune image" /><br />
                 */}
             </AddFormStyled>
@@ -110,6 +127,9 @@ const AddFormStyled = styled.form`
     .image-preview {
         background: red;
         grid-area: 1 / 1 / 4 / 2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
         img {
             width: 100%;
@@ -124,10 +144,15 @@ const AddFormStyled = styled.form`
         
         display: grid;
     }
-    .submit-button {
+    .submit {
         background: green;
         grid-area: 4 / -2 / -1 / -1;
-        width: 50%;
+        display:flex;
+        align-items: center;
+
+        .submit-button {
+            width: 50%;
+        }
     }
     
     input {
