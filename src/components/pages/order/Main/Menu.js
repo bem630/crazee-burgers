@@ -10,9 +10,14 @@ import OrderContext from "../../../../context/OrderContext";
 const IMAGE_BY_DEFAULT = "/images/coming-soon.png";
 
 const Menu = () => {
-    const {menu,isModeAdmin} = useContext(OrderContext);
+    //state
+    const {menu,isModeAdmin, handleDelete} = useContext(OrderContext);
+
+    //comportements
     
     //const [menu, setMenu] = useState(fakeMenu.LARGE);
+
+    //affichage
     return ( 
         <MenuStyled>
             {menu.map(({id, imageSource, title, price}) => {
@@ -24,6 +29,7 @@ const Menu = () => {
                         title={title} 
                         leftDescription={formatPrice(price)} 
                         hasDeleteButton = {isModeAdmin}
+                        onDelete = {() => handleDelete(id)}
                     />
                 )
                 } )}

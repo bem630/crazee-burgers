@@ -1,15 +1,19 @@
 import styled from "styled-components";
 import { theme } from "../../theme";
 
-import PrimaryButton from "./PrimaryButton";import { TiDelete } from "react-icons/ti";
+import PrimaryButton from "./PrimaryButton";
+import { TiDelete } from "react-icons/ti";
 
 
-const Card = ({ imageSource, title, leftDescription, hasDeleteButton}) => {
+const Card = ({ imageSource, title, leftDescription, hasDeleteButton, onDelete}) => {
     return ( 
         <CardStyled>
-        {hasDeleteButton && <button className="delete-button" aria-label="delete-button">
+        {
+            hasDeleteButton && <button className="delete-button" 
+            aria-label="delete-button" onClick={onDelete} >
             <TiDelete className="icon" />
-        </button>}
+        </button>
+        }
             <div className="image">
                 <img src={imageSource} alt={title} />
             </div>
