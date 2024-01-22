@@ -1,10 +1,12 @@
 //import { useState } from "react";
 import styled from "styled-components";
-import { theme } from "../../../../theme";
-import Card from "../../../reusable-ui/Card";
-import { formatPrice } from "../../../../utils/maths"
+import { theme } from "../../../../../theme";
+import Card from "../../../../reusable-ui/Card";
+import { formatPrice } from "../../../../../utils/maths"
 import { useContext } from "react";
-import OrderContext from "../../../../context/OrderContext";
+import OrderContext from "../../../../../context/OrderContext";
+import EmptyMenuAdmin from "./EmptyMenuAdmin";
+import EmptyMenuClient from "./EmptyMenuClient";
 //import { fakeMenu } from "../../../../fakeData/fakeMenu";
 
 const IMAGE_BY_DEFAULT = "/images/coming-soon.png";
@@ -19,10 +21,11 @@ const Menu = () => {
     //const [menu, setMenu] = useState(fakeMenu.LARGE);
 
     //affichage
-    if(menu.length ===0) return <div>
-        <span>Pas de produit</span>
-        <button onClick={resetMenu}>generer les produit</button>
-    </div>
+    if(menu.length ===0) { 
+        if (!isModeAdmin) return <EmptyMenuClient/>
+        return <EmptyMenuAdmin onReset= {resetMenu} />
+    }
+    
     return ( 
         <MenuStyled>
             {menu.map(({id, imageSource, title, price}) => {
