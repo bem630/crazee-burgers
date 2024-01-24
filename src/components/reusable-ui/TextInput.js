@@ -1,5 +1,6 @@
 import styled, { css } from "styled-components";
 import { theme } from "../../theme";
+import { version } from "react";
 
 const TextInput = ({value, onChange, icon, version="normal", ...extraProps}) => {
     return ( 
@@ -38,11 +39,13 @@ const TextInputStyled = styled.div`
   }
     }
 
-    ${(props) => {
-      if(props.version === "normal") return extraStyleNormal
-      if(props.version === "minimalist") return extraStyleMinimalist }}
+    ${({version}) =>
+      extraStyle[version]
+    }
     
 `;
+
+
 
 const extraStyleNormal = css`
   background-color: ${theme.colors.white};
@@ -71,3 +74,8 @@ const extraStyleMinimalist = css`
     }
   }
   `
+
+  const extraStyle = {
+    normal: extraStyleNormal,
+    minimalist: extraStyleMinimalist,
+  }

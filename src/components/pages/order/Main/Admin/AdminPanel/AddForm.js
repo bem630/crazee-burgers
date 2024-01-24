@@ -173,10 +173,9 @@ const AddFormStyled = styled.form`
         .submit-button {
             width: 50%;
         }
-    }
-    
-    
+    }  
 `;
+
 
 
 /*input {
