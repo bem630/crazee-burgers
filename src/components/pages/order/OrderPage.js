@@ -72,10 +72,11 @@ const OrderPageStyled = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
   .container {
     background: red;
-    height: 95vh;
-    width: 1250px; //normalement je dois mettre width: 1400px; comme Vi
+    height: 833px;
+    width: 1400px; //normalement je dois mettre width: 1250px; comme Vi
     display: flex;
     flex-direction: column;
     border-radius: ${theme.borderRadius.extraRound};

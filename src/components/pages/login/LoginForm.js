@@ -37,7 +37,7 @@ const LoginForm = () => {
                 <h2>Connectez vous</h2>
             </div>
             <div className="form-gauche">
-                <TextInput value={inputValues} onChange={handleChange} placeholder="Entrez votre prénom" required  icon= {<BsPersonCircle className="icon" />} />
+                <TextInput value={inputValues} onChange={handleChange} placeholder="Entrez votre prénom" required  icon= {<BsPersonCircle className="icon" />} version="normal" />
                 <PrimaryButton iconChevron = {<FaChevronRight className="icon-btn"/>} label={"Accédez à mon espace"} />
             </div>
         </LoginFormStyled>

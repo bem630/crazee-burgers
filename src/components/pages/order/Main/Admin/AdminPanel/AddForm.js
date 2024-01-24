@@ -1,11 +1,12 @@
-//import { FaHamburger } from "react-icons/fa";
-//import { BsFillCameraFill } from "react-icons/bs";
-//import { MdOutlineEuro } from "react-icons/md";
+import { FaHamburger } from "react-icons/fa";
+import { BsFillCameraFill } from "react-icons/bs";
+import { MdOutlineEuro } from "react-icons/md";
 import { FiCheck } from "react-icons/fi";
 import styled from "styled-components";
 import { theme } from "../../../../../../theme";
 import { useContext, useState } from "react";
 import OrderContext from "../../../../../../context/OrderContext";
+import TextInput from "../../../../../reusable-ui/TextInput";
 
 const EmptyProduct = {
     id: "",
@@ -75,29 +76,35 @@ const AddForm = () => {
                 </div>
                 <div className="input-fields">
                         {/*<FaHamburger className="icon" />*/}
-                        <input
+                        <TextInput
                             name="title" 
                             value={newProduct.title}
                             type="text"
                             placeholder="Produit (ex: Super Burger)"
                             onChange={handleChange}
+                            icon={<FaHamburger/>}
+                            version="minimalist"
                             />
                         {/*<BsFillCameraFill className="icon"/>*/}
-                        <input 
+                        <TextInput 
                             type="text"
                             name="imageSource" 
                             placeholder="Lien URL d'une image(ex: https://photo-frites.png)"
                             value={newProduct.imageSource}
                             onChange={handleChange}
+                            icon={<BsFillCameraFill/>}
+                            version="minimalist"
                             />
                         {/*<BsFillCameraFill className="icon"/>*/}
-                        <input 
+                        <TextInput 
                             type="text"
                             name="price"
                             id="Prix"
                             placeholder="Prix"
                             value={newProduct.price ? newProduct.price: "" }
                             onChange={handleChange}
+                            icon={<MdOutlineEuro/>}
+                            version="minimalist"
                         />
                     
                 </div>
@@ -126,6 +133,7 @@ const AddFormStyled = styled.form`
     grid-template-rows: repeat(4, 1fr);
     grid-column-gap: 20px;
     grid-row-gap: 8px;
+
     .image-preview {
         grid-area: 1 / 1 / 4 / 2;
         display: flex;
@@ -152,10 +160,9 @@ const AddFormStyled = styled.form`
         }
     }
     .input-fields {
-        background: blue;
         grid-area: 1 / 2 / -2 / 3;
-        
         display: grid;
+        grid-row-gap: 8px;
     }
     .submit {
         background: green;
@@ -168,7 +175,11 @@ const AddFormStyled = styled.form`
         }
     }
     
-    input {
+    
+`;
+
+
+/*input {
         font-size: 15px;
         width: 80%;
     }
@@ -176,7 +187,4 @@ const AddFormStyled = styled.form`
     margin-right: ${theme.spacing.xs};
     font-size: 15px;
     color: ${theme.colors.greySemiDark};
-  }
-`;
-
-
+  }*/

@@ -1,9 +1,9 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { theme } from "../../theme";
 
-const TextInput = ({value, onChange, icon, ...extraProps}) => {
+const TextInput = ({value, onChange, icon, version="normal", ...extraProps}) => {
     return ( 
-        <TextInputStyled>
+        <TextInputStyled version={version}>
             { icon && icon}
             <input value={value} onChange={onChange} type="text" {...extraProps}  />
         </TextInputStyled>
@@ -13,29 +13,61 @@ const TextInput = ({value, onChange, icon, ...extraProps}) => {
 export default TextInput;
 
 const TextInputStyled = styled.div`
-    display: flex;
-    flex-direction: row;
-    padding: 18px 24px;
-    align-items: center;
-    background-color: white;
     border-radius: ${theme.borderRadius.round};
-    margin: 18px 0;
+    display: flex;
+    align-items: center;
+    /*flex-direction: row;
+    padding: 18px 24px;
+    
+    background-color: white;*/
     
     .icon {
-    margin-right: ${theme.spacing.xs};
-    font-size: 15px;
-    color: ${theme.colors.greySemiDark};
+      display: flex;
+      margin: 0 13px 0 8px;
+      font-size: 15px;
+      //justify-content: center;
+      //align-items: center;
   }
     input {
-        outline-color: ${theme.colors.blue};
         border: none;
-        color: ${theme.colors.dark};
         font-size: 15px;
         width: 100%;
+
         &::placeholder {
-    background-color: white;
-    color: lightgrey;
+        color: ${theme.colors.greyMedium};
   }
     }
+
+    ${(props) => {
+      if(props.version === "normal") return extraStyleNormal
+      if(props.version === "minimalist") return extraStyleMinimalist }}
     
 `;
+
+const extraStyleNormal = css`
+  background-color: ${theme.colors.white};
+  padding: 18px 28px;
+  color: ${theme.colors.greySemiDark};
+
+  input {
+    color: ${theme.colors.dark};
+
+    &::placeholder {
+      background: ${theme.colors.white};
+    }
+  }
+   `
+const extraStyleMinimalist = css`
+  background-color: ${theme.colors.background_white};
+  padding: 8px 16px;
+  color: ${theme.colors.greyBlue};
+
+  input {
+    color: ${theme.colors.dark};
+    background: ${theme.colors.background_white};
+
+    &:focus {
+      outline: 0;
+    }
+  }
+  `
