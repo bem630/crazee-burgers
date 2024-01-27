@@ -114,8 +114,8 @@ const AddForm = () => {
                     {/*<button className="submit-button">Ajouter un nouveau produit au menu</button>*/}
                     {isSubmitted && ( 
                         <div className="submit-message">
-                            <FiCheck />
-                            <span>Ajouté avec succès</span>
+                            <FiCheck className="icon"/>
+                            <span className="message">Ajouté avec succès !</span>
                         </div>)}
                 </div>
                 {/*<input type="image" src="" alt="Aucune image" /><br />
@@ -177,7 +177,30 @@ const AddFormStyled = styled.form`
             //width: 50%;
             height: 100%;
         }
+
+
     }  
+
+    .submit-message {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: 5px;
+        .icon {
+            color: ${theme.colors.success};
+            margin-left: 10px;
+            width: 1em;
+            height: 1em;
+            border: 1px solid ${theme.colors.success};
+            border-radius: 50%;
+            vertical-align: middle;
+        }
+        .message {
+            margin-left: 5px;
+            font-size: ${theme.fonts.weights.medium};
+            color: ${theme.colors.success};
+        }
+    }
 `;
 
 
