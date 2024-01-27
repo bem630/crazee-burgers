@@ -1,11 +1,10 @@
 import styled, { css } from "styled-components";
 import { theme } from "../../theme";
-import { version } from "react";
 
-const TextInput = ({value, onChange, icon, version="normal", ...extraProps}) => {
+const TextInput = ({value, onChange, icon,className, version="normal", ...extraProps}) => {
     return ( 
-        <TextInputStyled version={version}>
-            { icon && icon}
+        <TextInputStyled className={className} version={version}>
+            <div className="icon">{ icon && icon }</div>
             <input value={value} onChange={onChange} type="text" {...extraProps}  />
         </TextInputStyled>
      );
@@ -17,21 +16,15 @@ const TextInputStyled = styled.div`
     border-radius: ${theme.borderRadius.round};
     display: flex;
     align-items: center;
-    /*flex-direction: row;
-    padding: 18px 24px;
-    
-    background-color: white;*/
     
     .icon {
       display: flex;
       margin: 0 13px 0 8px;
-      font-size: 15px;
-      //justify-content: center;
-      //align-items: center;
+      font-size: ${theme.fonts.size.SM};
   }
     input {
         border: none;
-        font-size: 15px;
+        font-size: ${theme.fonts.size.SM};
         width: 100%;
 
         &::placeholder {
@@ -39,10 +32,7 @@ const TextInputStyled = styled.div`
   }
     }
 
-    ${({version}) =>
-      extraStyle[version]
-    }
-    
+    ${({version}) => extraStyle[version]}
 `;
 
 

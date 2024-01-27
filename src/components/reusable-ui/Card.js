@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { theme } from "../../theme";
 
-import PrimaryButton from "./PrimaryButton";
+import Button from "./Button";
 import { TiDelete } from "react-icons/ti";
 
 
@@ -24,7 +24,7 @@ const Card = ({ imageSource, title, leftDescription, hasDeleteButton, onDelete})
                         <div className="price">{leftDescription}</div>
                     </div>
                     <div className="right-description">
-                        <PrimaryButton className="primary-button" label={"Ajouter"}/>
+                        <Button className="primary-button" label={"Ajouter"}/>
                     </div>
                 </div>
             </div>

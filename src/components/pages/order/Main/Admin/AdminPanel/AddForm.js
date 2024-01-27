@@ -7,6 +7,7 @@ import { theme } from "../../../../../../theme";
 import { useContext, useState } from "react";
 import OrderContext from "../../../../../../context/OrderContext";
 import TextInput from "../../../../../reusable-ui/TextInput";
+import PrimaryButton from "../../../../../reusable-ui/Button";
 
 const EmptyProduct = {
     id: "",
@@ -109,7 +110,8 @@ const AddForm = () => {
                     
                 </div>
                 <div className="submit">
-                    <button className="submit-button">Ajouter un nouveau produit au menu</button>
+                    <PrimaryButton className="submit-button" label={"Ajouter un nouveau produit au menu"} version="success"  />
+                    {/*<button className="submit-button">Ajouter un nouveau produit au menu</button>*/}
                     {isSubmitted && ( 
                         <div className="submit-message">
                             <FiCheck />
@@ -165,13 +167,15 @@ const AddFormStyled = styled.form`
         grid-row-gap: 8px;
     }
     .submit {
-        background: green;
         grid-area: 4 / -2 / -1 / -1;
         display:flex;
         align-items: center;
+        position: relative;
+        top: 3px;
 
         .submit-button {
-            width: 50%;
+            //width: 50%;
+            height: 100%;
         }
     }  
 `;
