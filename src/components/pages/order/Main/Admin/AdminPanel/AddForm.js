@@ -9,7 +9,7 @@ import OrderContext from "../../../../../../context/OrderContext";
 import TextInput from "../../../../../reusable-ui/TextInput";
 import PrimaryButton from "../../../../../reusable-ui/Button";
 
-const EmptyProduct = {
+export const EmptyProduct = {
     id: "",
     title: "",
     imageSource: "",
@@ -17,8 +17,8 @@ const EmptyProduct = {
 }
 
 const AddForm = () => {
-    const {handleAddProduit} = useContext(OrderContext);
-    const [newProduct, setNewProduct] = useState(EmptyProduct);
+    const {handleAddProduit, newProduct, setNewProduct} = useContext(OrderContext);
+    //const [newProduct, setNewProduct] = useState(EmptyProduct);
     const [isSubmitted, setIsSubmitted] = useState(false);
     /*
     const [title, setTitle] = useState("");
