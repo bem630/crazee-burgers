@@ -1,14 +1,13 @@
 import { FaHamburger } from "react-icons/fa";
 import { BsFillCameraFill } from "react-icons/bs";
 import { MdOutlineEuro } from "react-icons/md";
-import { FiCheck } from "react-icons/fi";
 import styled from "styled-components";
-import { theme } from "../../../../../../theme";
 import { useContext, useState } from "react";
 import OrderContext from "../../../../../../context/OrderContext";
 import TextInput from "../../../../../reusable-ui/TextInput";
 import PrimaryButton from "../../../../../reusable-ui/Button";
 import ImagePreview from "./ImagePreview";
+import SubmitMessage from "./SubmitMessage";
 
 export const EmptyProduct = {
     id: "",
@@ -108,13 +107,8 @@ const AddForm = () => {
                     <PrimaryButton className="submit-button" label={"Ajouter un nouveau produit au menu"} version="success"  />
                     {/*<button className="submit-button">Ajouter un nouveau produit au menu</button>*/}
                     {isSubmitted && ( 
-                        <div className="submit-message">
-                            <FiCheck className="icon"/>
-                            <span className="message">Ajouté avec succès !</span>
-                        </div>)}
+                        <SubmitMessage />)}
                 </div>
-                {/*<input type="image" src="" alt="Aucune image" /><br />
-                */}
             </AddFormStyled>
      );
 }
@@ -151,27 +145,6 @@ const AddFormStyled = styled.form`
 
 
     }  
-
-    .submit-message {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-left: 5px;
-        .icon {
-            color: ${theme.colors.success};
-            margin-left: 10px;
-            width: 1em;
-            height: 1em;
-            border: 1px solid ${theme.colors.success};
-            border-radius: 50%;
-            vertical-align: middle;
-        }
-        .message {
-            margin-left: 5px;
-            font-size: ${theme.fonts.weights.medium};
-            color: ${theme.colors.success};
-        }
-    }
 `;
 
 
