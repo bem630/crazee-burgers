@@ -1,11 +1,19 @@
 import styled from "styled-components";
 import { theme } from "../../theme";
 
-import PrimaryButton from "./PrimaryButton";
+import Button from "./Button";
+import { TiDelete } from "react-icons/ti";
 
-const Card = ({ imageSource, title, leftDescription}) => {
+
+const Card = ({ imageSource, title, leftDescription, hasDeleteButton, onDelete}) => {
     return ( 
         <CardStyled>
+        {
+            hasDeleteButton && <button className="delete-button" 
+            aria-label="delete-button" onClick={onDelete} >
+            <TiDelete className="icon" />
+        </button>
+        }
             <div className="image">
                 <img src={imageSource} alt={title} />
             </div>
@@ -16,7 +24,7 @@ const Card = ({ imageSource, title, leftDescription}) => {
                         <div className="price">{leftDescription}</div>
                     </div>
                     <div className="right-description">
-                        <PrimaryButton className="primary-button" label={"Ajouter"}/>
+                        <Button className="primary-button" label={"Ajouter"}/>
                     </div>
                 </div>
             </div>
@@ -35,6 +43,33 @@ const CardStyled = styled.div`
         padding-bottom: 10px;
         box-shadow: -8px 8px 20px 0px rgba(0, 0, 0 / 20%);
         border-radius: ${theme.borderRadius.extraRound};
+        position: relative;
+        .delete-button {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            cursor: pointer;
+            width: 30px;
+            height: 30px;
+            color: ${theme.colors.primary};
+            z-index: 2;
+            padding: 0;
+            border: none;
+            background: none;
+
+            .icon {
+            width: 100%;
+            height: 100%;
+        }
+
+        :hover {
+            color: ${theme.colors.red};
+        }
+        :active {
+            color: ${theme.colors.primary};
+        }
+        }
+        
         .image {
             width: 100%;
             height: auto;

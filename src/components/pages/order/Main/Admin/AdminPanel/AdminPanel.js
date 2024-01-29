@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import { theme } from "../../../../../theme";
-import OrderContext from "../../../../../context/OrderContext";
+import { theme } from "../../../../../../theme";
+import OrderContext from "../../../../../../context/OrderContext";
 import { useContext } from "react";
-import { getTabSelected, getTabsConfig } from "./getTabsConfig";
+import { getTabSelected, getTabsConfig } from "../getTabsConfig";
 //import { MdYard } from "react-icons/md";
 
 
@@ -14,7 +14,7 @@ const AdminPanel = () => {
     
     return ( 
         <AdminPanelStyled>
-            {currentTabSelected === tabSelected.index && tabSelected.label}
+            {currentTabSelected === tabSelected.index && tabSelected.Content}
             {/*{isAddSelected && "Ajouter un produit"}
             {isEditSelected && "Modifier un produit"}*/}
         </AdminPanelStyled>
@@ -27,6 +27,9 @@ const AdminPanelStyled = styled.div`
     background-color: ${theme.colors.white};
     box-shadow: ${theme.shadows.subtle};
     border: 1px solid ${theme.colors.greyLight};
-    height: 250px;
-        
+    height: 240px;
+    box-sizing: border-box;
+    padding: 30px 5%;
+    margin: 0 13.2%;
+    
 `;

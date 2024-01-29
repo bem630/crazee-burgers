@@ -5,6 +5,8 @@ import Navbar from "./Navbar/Navbar";
 import Main from "./Main/Main";
 import { useState } from "react";
 import OrderContext from "../../../context/OrderContext";
+import { fakeMenu } from "../../../fakeData/fakeMenu";
+import { EmptyProduct } from "./Main/Admin/AdminPanel/AddForm";
 
 const OrderPage = () => {
     //const { username } = useParams();
@@ -13,6 +15,27 @@ const OrderPage = () => {
     const [isEditSelected, setIsEditSelected] = useState(false);
     const [isAddSelected, setIsAddSelected] = useState(true);
     const [currentTabSelected, setcurrentTabSelected] = useState("add");
+    const [menu, setMenu] = useState(fakeMenu.LARGE);
+    const [newProduct, setNewProduct] = useState(EmptyProduct);
+    
+    const handleAddProduit = (newProduit) => { 
+        const menuCopy = [...menu];
+        const menuUpdated = [newProduit, ...menuCopy];
+        setMenu(menuUpdated);
+     }
+
+     const handleDelete = (idOfProductToDelete) => {
+      //1) copy du state
+      const menyCopy = [...menu];
+      //2) Manipulation de copy du state
+      const menuUpdated = menyCopy.filter((product) => product.id !== idOfProductToDelete );
+       //3) Updated du state avec seteur dedié
+       setMenu(menuUpdated);
+     }
+
+     const resetMenu = () => {
+      setMenu(fakeMenu.LARGE)
+  }
 
     const orderContextValue = {
       isModeAdmin, 
@@ -25,6 +48,12 @@ const OrderPage = () => {
       setIsAddSelected,
       currentTabSelected,
       setcurrentTabSelected,
+      menu,
+      handleAddProduit,
+      handleDelete,
+      resetMenu,
+      newProduct,
+      setNewProduct,
     }
     
     return ( 
@@ -47,10 +76,11 @@ const OrderPageStyled = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
   .container {
     background: red;
-    height: 95vh;
-    width: 1250px; //normalement je dois mettre width: 1400px; comme Vi
+    height: 833px;
+    width: 1400px; //normalement je dois mettre width: 1250px; comme Vi
     display: flex;
     flex-direction: column;
     border-radius: ${theme.borderRadius.extraRound};

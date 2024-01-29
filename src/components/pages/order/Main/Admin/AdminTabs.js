@@ -74,7 +74,7 @@ const AdminTabs = () => {
                 return <Tab
                 key={tabs.index} 
                 label={tabs.label}
-                Icon = {tabs.Icon} 
+                Icon = {tabs.Icon}
                 onClick = {() => { selectTab(tabs.index)}} 
                 className={currentTabSelected === tabs.index ? "is-active" : ""}
             />
@@ -87,7 +87,11 @@ export default AdminTabs;
 
 const AdminTabsStyled = styled.div`
     display: flex;
-    padding: 0 20px;
+    //padding: 0 20px;
+    position: absolute;
+    top: -43px;
+    left: 13.2%;
+    
 
     .is-active {
         background: ${theme.colors.background_dark};

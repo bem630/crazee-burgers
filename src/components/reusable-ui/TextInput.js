@@ -1,10 +1,10 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { theme } from "../../theme";
 
-const TextInput = ({value, onChange, icon, ...extraProps}) => {
+const TextInput = ({value, onChange, icon,className, version="normal", ...extraProps}) => {
     return ( 
-        <TextInputStyled>
-            { icon && icon}
+        <TextInputStyled className={className} version={version}>
+            <div className="icon">{ icon && icon }</div>
             <input value={value} onChange={onChange} type="text" {...extraProps}  />
         </TextInputStyled>
      );
@@ -13,29 +13,59 @@ const TextInput = ({value, onChange, icon, ...extraProps}) => {
 export default TextInput;
 
 const TextInputStyled = styled.div`
-    display: flex;
-    flex-direction: row;
-    padding: 18px 24px;
-    align-items: center;
-    background-color: white;
     border-radius: ${theme.borderRadius.round};
-    margin: 18px 0;
+    display: flex;
+    align-items: center;
     
     .icon {
-    margin-right: ${theme.spacing.xs};
-    font-size: 15px;
-    color: ${theme.colors.greySemiDark};
+      display: flex;
+      margin: 0 13px 0 8px;
+      font-size: ${theme.fonts.size.SM};
   }
     input {
-        outline-color: ${theme.colors.blue};
         border: none;
-        color: ${theme.colors.dark};
-        font-size: 15px;
+        font-size: ${theme.fonts.size.SM};
         width: 100%;
+
         &::placeholder {
-    background-color: white;
-    color: lightgrey;
+        color: ${theme.colors.greyMedium};
   }
     }
-    
+
+    ${({version}) => extraStyle[version]}
 `;
+
+
+
+const extraStyleNormal = css`
+  background-color: ${theme.colors.white};
+  padding: 18px 28px;
+  color: ${theme.colors.greySemiDark};
+
+  input {
+    color: ${theme.colors.dark};
+
+    &::placeholder {
+      background: ${theme.colors.white};
+    }
+  }
+   `
+const extraStyleMinimalist = css`
+  background-color: ${theme.colors.background_white};
+  padding: 8px 16px;
+  color: ${theme.colors.greyBlue};
+
+  input {
+    color: ${theme.colors.dark};
+    background: ${theme.colors.background_white};
+
+    &:focus {
+      outline: 0;
+    }
+  }
+  `
+
+  const extraStyle = {
+    normal: extraStyleNormal,
+    minimalist: extraStyleMinimalist,
+  }
