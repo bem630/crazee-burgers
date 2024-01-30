@@ -6,7 +6,6 @@ import Main from "./Main/Main";
 import { useState } from "react";
 import OrderContext from "../../../context/OrderContext";
 import { fakeMenu } from "../../../fakeData/fakeMenu";
-//import { EmptyProduct } from "./Main/Admin/AdminPanel/AddForm";
 import { EMPTY_PRODUCT } from "../../../enums/product";
 
 const OrderPage = () => {

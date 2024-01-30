@@ -5,12 +5,10 @@ import styled from "styled-components";
 import ImagePreview from "./ImagePreview";
 import TextInput from "../../../../../reusable-ui/TextInput";
 import { getInputTextsConfig } from "./InputTextConfig";
-import { EMPTY_PRODUCT } from "../../../../../../enums/product";
 
 const EditForm = () => {
     // state
     const { productSelected, setProductSelected, handleEdit } = useContext(OrderContext);
-    const [productBeingEdit, setProductBeingEdit] = useState(EMPTY_PRODUCT)
 
     
     // comportements (gestionnaires d'événement ou "event handlers")
