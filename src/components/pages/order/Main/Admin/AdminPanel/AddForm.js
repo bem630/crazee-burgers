@@ -4,15 +4,10 @@ import OrderContext from "../../../../../../context/OrderContext";
 import TextInput from "../../../../../reusable-ui/TextInput";
 import PrimaryButton from "../../../../../reusable-ui/Button";
 import ImagePreview from "./ImagePreview";
-import SubmitMessage from "./SubmitMessage";
+import SubmitMessage from "./SubmitMessage";    
 import { getInputTextsConfig } from "./InputTextConfig";
+import { EMPTY_PRODUCT } from "../../../../../../enums/product";
 
-export const EmptyProduct = {
-    id: "",
-    title: "",
-    imageSource: "",
-    price: 0,
-}
 
 const AddForm = () => {
     const {handleAddProduit, newProduct, setNewProduct} = useContext(OrderContext);
@@ -46,7 +41,7 @@ const AddForm = () => {
             imageSource: newProduct.imageSource,*/
         }
         handleAddProduit(newProduitToadd);
-        setNewProduct(EmptyProduct);
+        setNewProduct(EMPTY_PRODUCT);
         setIsSubmitted(true);
         displaySuccesMessage();
     }

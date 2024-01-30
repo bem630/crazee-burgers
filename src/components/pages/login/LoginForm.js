@@ -60,28 +60,29 @@ const LoginFormStyled = styled.form`
     max-width: 500px;
     min-width: 400px;
     margin: 0 auto;
-    padding: 1.5rem 1rem;
+    padding: 40px ${theme.spacing.lg};
+    //padding: 1.5rem 1rem;
     border-radius: ${theme.borderRadius.round};
     font-family: 'Amatic SC', cursive;
 
     hr {
-      border: 1.5px solid #f56a2c;
-      margin-bottom: 40px;
+      border: 1.5px solid ${theme.colors.loginLine};
+      margin-bottom: ${theme.gridUnit * 5}px;
   }
   
   h1 {
     color: ${theme.colors.white};
-    font-size: 48px;
+    font-size: ${theme.fonts.size.P5};
   }
   
   h2 {
     color: ${theme.colors.white};
-    font-size: 36px;
-    margin: 20px 10px;
+    font-size: ${theme.fonts.size.P4};
+    margin: 20px 10px 10px;
   }
   
   .input-login {
-    margin: 18px 0;
+    margin: 18px 0; // must be handled in Parent
   }
 
 `;

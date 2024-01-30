@@ -13,7 +13,7 @@ const IMAGE_BY_DEFAULT = "/images/coming-soon.png";
 
 const Menu = () => {
     //state
-    const {menu,isModeAdmin, handleDelete, resetMenu} = useContext(OrderContext);
+    const {menu,isModeAdmin, handleDelete, resetMenu, setProductSelected} = useContext(OrderContext);
 
     //comportements
     
@@ -25,6 +25,11 @@ const Menu = () => {
         if (!isModeAdmin) return <EmptyMenuClient/>
         return <EmptyMenuAdmin onReset= {resetMenu} />
     }
+
+    const handleClick = (idProductClicked) => { 
+        const productSelected = menu.find((product) => product.id === idProductClicked) ;
+        setProductSelected(productSelected);
+     }
     
     return ( 
         <MenuStyled>
@@ -38,6 +43,7 @@ const Menu = () => {
                         leftDescription={formatPrice(price)} 
                         hasDeleteButton = {isModeAdmin}
                         onDelete = {() => handleDelete(id)}
+                        onClick = { () => handleClick(id)}
                     />
                 )
                 } )}
@@ -53,7 +59,7 @@ const MenuStyled = styled.div`
     display: grid;
     grid-row-gap: 60px;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-columns: repeat(auto-fit, minmax(270px,1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
     padding: 50px 50px 150px;
     justify-items: center;
     overflow-y: scroll;

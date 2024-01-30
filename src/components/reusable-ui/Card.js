@@ -5,9 +5,9 @@ import Button from "./Button";
 import { TiDelete } from "react-icons/ti";
 
 
-const Card = ({ imageSource, title, leftDescription, hasDeleteButton, onDelete}) => {
+const Card = ({ imageSource, title, leftDescription, hasDeleteButton, onDelete, onClick}) => {
     return ( 
-        <CardStyled>
+        <CardStyled onClick={onClick}>
         {
             hasDeleteButton && <button className="delete-button" 
             aria-label="delete-button" onClick={onDelete} >

@@ -6,7 +6,8 @@ import Main from "./Main/Main";
 import { useState } from "react";
 import OrderContext from "../../../context/OrderContext";
 import { fakeMenu } from "../../../fakeData/fakeMenu";
-import { EmptyProduct } from "./Main/Admin/AdminPanel/AddForm";
+//import { EmptyProduct } from "./Main/Admin/AdminPanel/AddForm";
+import { EMPTY_PRODUCT } from "../../../enums/product";
 
 const OrderPage = () => {
     //const { username } = useParams();
@@ -16,11 +17,18 @@ const OrderPage = () => {
     const [isAddSelected, setIsAddSelected] = useState(true);
     const [currentTabSelected, setcurrentTabSelected] = useState("add");
     const [menu, setMenu] = useState(fakeMenu.LARGE);
-    const [newProduct, setNewProduct] = useState(EmptyProduct);
+    const [newProduct, setNewProduct] = useState(EMPTY_PRODUCT);
+    const [productSelected, setProductSelected] = useState(EMPTY_PRODUCT)
     
+    // comportements (gestionnaire de state ou "state handlers")
     const handleAddProduit = (newProduit) => { 
+        // 1. copie du tableau
         const menuCopy = [...menu];
+
+        // 2. manip de la copie du tableau
         const menuUpdated = [newProduit, ...menuCopy];
+
+        // 3. update du state
         setMenu(menuUpdated);
      }
 
@@ -54,6 +62,8 @@ const OrderPage = () => {
       resetMenu,
       newProduct,
       setNewProduct,
+      productSelected,
+      setProductSelected,
     }
     
     return ( 
@@ -79,7 +89,7 @@ const OrderPageStyled = styled.div`
 
   .container {
     background: red;
-    height: 833px;
+    height: 95vh;
     width: 1400px; //normalement je dois mettre width: 1250px; comme Vi
     display: flex;
     flex-direction: column;
