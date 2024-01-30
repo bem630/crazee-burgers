@@ -23,7 +23,7 @@ const OrderPage = () => {
     // comportements (gestionnaire de state ou "state handlers")
     const handleAddProduit = (newProduit) => { 
         // 1. copie du tableau
-        const menuCopy = [...menu];
+        const menuCopy = JSON.parse(JSON.stringify(menu));
 
         // 2. manip de la copie du tableau
         const menuUpdated = [newProduit, ...menuCopy];
@@ -40,6 +40,18 @@ const OrderPage = () => {
        //3) Updated du state avec seteur dedié
        setMenu(menuUpdated);
      }
+
+     const handleEdit = (productBeingEdit) => { 
+      // 1. copie du tableau
+      const menuCopy = JSON.parse(JSON.stringify(menu));
+
+      // 2. manip de la copie du tableau
+      const indexOfProductToEdit = menu.findIndex((menuProduct) => menuProduct.id === productBeingEdit.id)
+      menuCopy[indexOfProductToEdit] = productBeingEdit
+
+      // 3. update du state
+      setMenu(menuCopy);
+   }
 
      const resetMenu = () => {
       setMenu(fakeMenu.LARGE)
@@ -64,6 +76,7 @@ const OrderPage = () => {
       setNewProduct,
       productSelected,
       setProductSelected,
+      handleEdit
     }
     
     return ( 

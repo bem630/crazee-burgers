@@ -8,16 +8,20 @@ import { getInputTextsConfig } from "./InputTextConfig";
 import { EMPTY_PRODUCT } from "../../../../../../enums/product";
 
 const EditForm = () => {
-    const { productSelected } = useContext(OrderContext);
+    // state
+    const { productSelected, setProductSelected, handleEdit } = useContext(OrderContext);
     const [productBeingEdit, setProductBeingEdit] = useState(EMPTY_PRODUCT)
 
     
-
+    // comportements (gestionnaires d'événement ou "event handlers")
     const handleChange = (e) => {
         const {name, value} = e.target;
-        setProductBeingEdit({...productBeingEdit, [name]: value })
+        const productBeingUpdated = {...productSelected, [name]: value }
+        setProductSelected(productBeingUpdated) // cette ligne update le formulaire
+        handleEdit(productBeingUpdated, e) // cette ligne update le menu
     }
     const inputTexts = getInputTextsConfig(productSelected);
+    // affichage
     return ( 
         <EditFormStyled>
                 <ImagePreview imageSource={productSelected.imageSource} title={productSelected.title}/>
