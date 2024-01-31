@@ -35,9 +35,10 @@ const Card = ({ imageSource, title, leftDescription, hasDeleteButton, onDelete, 
 export default Card;
 const CardStyled = styled.div`
         background: ${theme.colors.white};
-        width: 200px;
+        width: 240px;
         height: 330px;
         display: grid;
+        box-sizing: border-box;
         grid-template-rows: 65% 1fr;
         padding: 20px;
         padding-bottom: 10px;
