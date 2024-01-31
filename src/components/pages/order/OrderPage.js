@@ -7,6 +7,7 @@ import { useState } from "react";
 import OrderContext from "../../../context/OrderContext";
 import { fakeMenu } from "../../../fakeData/fakeMenu";
 import { EMPTY_PRODUCT } from "../../../enums/product";
+import { deepClone } from "../../../utils/array";
 
 const OrderPage = () => {
     //const { username } = useParams();
@@ -22,7 +23,7 @@ const OrderPage = () => {
     // comportements (gestionnaire de state ou "state handlers")
     const handleAddProduit = (newProduit) => { 
         // 1. copie du tableau
-        const menuCopy = JSON.parse(JSON.stringify(menu));
+        const menuCopy = deepClone(menu);
 
         // 2. manip de la copie du tableau
         const menuUpdated = [newProduit, ...menuCopy];
@@ -33,7 +34,8 @@ const OrderPage = () => {
 
      const handleDelete = (idOfProductToDelete) => {
       //1) copy du state
-      const menyCopy = [...menu];
+      const menyCopy = deepClone(menu);
+
       //2) Manipulation de copy du state
       const menuUpdated = menyCopy.filter((product) => product.id !== idOfProductToDelete );
        //3) Updated du state avec seteur dedié
@@ -41,8 +43,8 @@ const OrderPage = () => {
      }
 
      const handleEdit = (productBeingEdit) => { 
-      // 1. copie du tableau
-      const menuCopy = JSON.parse(JSON.stringify(menu));
+      // 1. copie du state (deep clone)
+      const menuCopy = deepClone(menu);
 
       // 2. manip de la copie du tableau
       const indexOfProductToEdit = menu.findIndex((menuProduct) => menuProduct.id === productBeingEdit.id)
