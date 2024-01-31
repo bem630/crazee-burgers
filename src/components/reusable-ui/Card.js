@@ -1,39 +1,58 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { theme } from "../../theme";
 
 import Button from "./Button";
 import { TiDelete } from "react-icons/ti";
 
 
-const Card = ({ imageSource, title, leftDescription, hasDeleteButton, onDelete, onClick}) => {
+const Card = ({ 
+    imageSource,
+    title,
+    leftDescription,
+    hasDeleteButton,
+    onDelete,
+    onClick,
+    isHoverable,
+}) => {
     return ( 
-        <CardStyled onClick={onClick}>
-        {
-            hasDeleteButton && <button className="delete-button" 
-            aria-label="delete-button" onClick={onDelete} >
-            <TiDelete className="icon" />
-        </button>
-        }
-            <div className="image">
-                <img src={imageSource} alt={title} />
-            </div>
-            <div className="info-text">
-                <div className="title">{title}</div>
-                <div className="description">
-                    <div className="left-description">
-                        <div className="price">{leftDescription}</div>
-                    </div>
-                    <div className="right-description">
-                        <Button className="primary-button" label={"Ajouter"}/>
+        <CardStyled
+            className="produit" 
+            onClick={onClick}
+            isHoverable={isHoverable}>
+        <div className="card">
+            {
+                hasDeleteButton && <button className="delete-button"
+                aria-label="delete-button" onClick={onDelete} >
+                <TiDelete className="icon" />
+            </button>
+            }
+                <div className="image">
+                    <img src={imageSource} alt={title} />
+                </div>
+                <div className="info-text">
+                    <div className="title">{title}</div>
+                    <div className="description">
+                        <div className="left-description">
+                            <div className="price">{leftDescription}</div>
+                        </div>
+                        <div className="right-description">
+                            <Button className="primary-button" label={"Ajouter"}/>
+                        </div>
                     </div>
                 </div>
-            </div>
+        </div>
         </CardStyled>
      );
 }
  
 export default Card;
 const CardStyled = styled.div`
+        ${({ isHoverable }) => isHoverable && hoverableStyle}
+        border-radius: ${theme.borderRadius.extraRound};
+        /* border: 1px solid red; */
+        height: 330px;
+
+  .card {
         background: ${theme.colors.white};
         width: 240px;
         height: 330px;
@@ -45,7 +64,9 @@ const CardStyled = styled.div`
         box-shadow: -8px 8px 20px 0px rgba(0, 0, 0 / 20%);
         border-radius: ${theme.borderRadius.extraRound};
         position: relative;
+
         .delete-button {
+            border: 1px solid red;
             position: absolute;
             top: 15px;
             right: 15px;
@@ -63,10 +84,10 @@ const CardStyled = styled.div`
             height: 100%;
         }
 
-        :hover {
+        &:hover {
             color: ${theme.colors.red};
         }
-        :active {
+        &:active {
             color: ${theme.colors.primary};
         }
         }
@@ -130,5 +151,14 @@ const CardStyled = styled.div`
                     }
                 }
             }
-        }
+        }}
 `;
+
+const hoverableStyle = css`
+  &:hover {
+    transform: scale(1.05);
+    transition: ease-out 0.4s;
+    box-shadow: ${theme.shadows.orangeHighlight};
+    cursor: pointer;
+  }
+`
