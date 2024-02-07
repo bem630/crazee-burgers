@@ -13,13 +13,14 @@ const Card = ({
     onDelete,
     onClick,
     isHoverable,
+    isSelected,
 }) => {
     return ( 
         <CardStyled
             className="produit" 
             onClick={onClick}
             isHoverable={isHoverable}>
-        <div className="card">
+        <div className="card" style={ isSelected ? {backgroundColor: "orange"}: {}}>
             {
                 hasDeleteButton && <button className="delete-button"
                 aria-label="delete-button" onClick={onDelete} >
@@ -49,7 +50,7 @@ export default Card;
 const CardStyled = styled.div`
         ${({ isHoverable }) => isHoverable && hoverableStyle}
         border-radius: ${theme.borderRadius.extraRound};
-        /* border: 1px solid red; */
+        border: 1px solid red;
         height: 330px;
 
   .card {

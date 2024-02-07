@@ -13,24 +13,30 @@ const IMAGE_BY_DEFAULT = "/images/coming-soon.png";
 
 const Menu = () => {
     //state
-    const {menu,isModeAdmin, handleDelete, resetMenu, setProductSelected} = useContext(OrderContext);
+    const {
+        menu,
+        isModeAdmin,
+        handleDelete,
+        resetMenu,
+        setProductSelected
+    } = useContext(OrderContext);
 
     //comportements
     
     
     //const [menu, setMenu] = useState(fakeMenu.LARGE);
 
+    const handleClick = (idProductClicked) => { 
+        const productClickedOn = menu.find((product) => product.id === idProductClicked) ;
+        setProductSelected(productClickedOn);
+     }
+
     //affichage
-    if(menu.length ===0) { 
+     if(menu.length ===0) { 
         if (!isModeAdmin) return <EmptyMenuClient/>
         return <EmptyMenuAdmin onReset= {resetMenu} />
     }
 
-    const handleClick = (idProductClicked) => { 
-        const productSelected = menu.find((product) => product.id === idProductClicked) ;
-        setProductSelected(productSelected);
-     }
-    
     return ( 
         <MenuStyled>
             {menu.map(({id, imageSource, title, price}) => {
@@ -45,6 +51,7 @@ const Menu = () => {
                         onDelete = {() => handleDelete(id)}
                         onClick = { () => handleClick(id)}
                         isHoverable = {isModeAdmin}
+                        isSelected={true}
                     />
                 )
                 } )}
