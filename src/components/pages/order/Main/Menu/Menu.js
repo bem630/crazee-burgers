@@ -7,7 +7,7 @@ import { useContext } from "react";
 import OrderContext from "../../../../../context/OrderContext";
 import EmptyMenuAdmin from "./EmptyMenuAdmin";
 import EmptyMenuClient from "./EmptyMenuClient";
-//import { fakeMenu } from "../../../../fakeData/fakeMenu";
+import { checkIfProductIsClicked } from "./helper"
 
 const IMAGE_BY_DEFAULT = "/images/coming-soon.png";
 
@@ -18,18 +18,16 @@ const Menu = () => {
         isModeAdmin,
         handleDelete,
         resetMenu,
-        setProductSelected
+        setProductSelected,
+        productSelected,
     } = useContext(OrderContext);
-
-    //comportements
     
-    
-    //const [menu, setMenu] = useState(fakeMenu.LARGE);
-
+    //comportements (gestionnaires d'evenement)
     const handleClick = (idProductClicked) => { 
         const productClickedOn = menu.find((product) => product.id === idProductClicked) ;
         setProductSelected(productClickedOn);
      }
+     
 
     //affichage
      if(menu.length ===0) { 
@@ -51,7 +49,7 @@ const Menu = () => {
                         onDelete = {() => handleDelete(id)}
                         onClick = { () => handleClick(id)}
                         isHoverable = {isModeAdmin}
-                        isSelected={true}
+                        isSelected={checkIfProductIsClicked(id, productSelected.id)}
                     />
                 )
                 } )}
