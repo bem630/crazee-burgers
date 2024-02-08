@@ -45,6 +45,7 @@ const Card = ({
                             <Button 
                                 className="primary-button"
                                 label={"Ajouter"}
+                                onClick={(event) => event.stopPropagation() }
                             />
                         </div>
                     </div>
