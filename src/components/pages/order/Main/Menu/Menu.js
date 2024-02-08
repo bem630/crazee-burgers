@@ -23,16 +23,18 @@ const Menu = () => {
         setProductSelected,
         setIsCollapsed,
         setcurrentTabSelected,
-        
+        titleEditRef,
     } = useContext(OrderContext);
     
     //comportements (gestionnaires d'evenement)
-    const handleClick = (idProductClicked) => { 
+    const handleClick = async (idProductClicked) => { 
         if(!isModeAdmin) return
-        setIsCollapsed(false)
-        setcurrentTabSelected("edit")
+
+        await setIsCollapsed(false)
+        await setcurrentTabSelected("edit")
         const productClickedOn = menu.find((product) => product.id === idProductClicked) ;
-        setProductSelected(productClickedOn);
+        await setProductSelected(productClickedOn);
+        titleEditRef.current.focus()
      }
      
 
@@ -45,7 +47,7 @@ const Menu = () => {
     const handleCardDelete = (event, idProductToDelete) => { 
         event.stopPropagation()
         handleDelete(idProductToDelete)
-        idProductToDelete === productSelected.id &&
+        idProductToDelete === productSelected.id && titleEditRef.current.focus()
         setProductSelected(EMPTY_PRODUCT)
         //titleEditRef.current.focus()
      }
@@ -56,8 +58,7 @@ const Menu = () => {
                 return (
                     <Card 
                         key={id} 
-                        imageSource={imageSource ? imageSource : IMAGE_BY_DEFAULT}
-                        //imageSource ={imageSource === "" ? "/images/coming-soon.png" : imageSource} 
+                        imageSource={imageSource ? imageSource : IMAGE_BY_DEFAULT} 
                         title={title} 
                         leftDescription={formatPrice(price)} 
                         hasDeleteButton = {isModeAdmin}

@@ -8,8 +8,7 @@ import { getInputTextsConfig } from "./InputTextConfig";
 
 const EditForm = () => {
     // state
-    const { productSelected, setProductSelected, handleEdit } = useContext(OrderContext);
-
+    const { productSelected, setProductSelected, handleEdit, titleEditRef } = useContext(OrderContext);
     
     // comportements (gestionnaires d'événement ou "event handlers")
     const handleChange = (e) => {
@@ -26,7 +25,7 @@ const EditForm = () => {
                 <div className="input-fields">
                         {inputTexts.map (
                             (input) => (
-                                <TextInput {...input} key={input.id} onChange={handleChange} version="minimalist"/>
+                                <TextInput {...input} key={input.id} onChange={handleChange} version="minimalist" ref ={ input.name === "title" ? titleEditRef: null} />
                             )
                         ) }
                     

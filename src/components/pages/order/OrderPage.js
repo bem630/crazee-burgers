@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { theme } from "../../../theme";
 import Navbar from "./Navbar/Navbar";
 import Main from "./Main/Main";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import OrderContext from "../../../context/OrderContext";
 import { fakeMenu } from "../../../fakeData/fakeMenu";
 import { EMPTY_PRODUCT } from "../../../enums/product";
@@ -19,7 +19,8 @@ const OrderPage = () => {
     const [menu, setMenu] = useState(fakeMenu.LARGE);
     const [newProduct, setNewProduct] = useState(EMPTY_PRODUCT);
     const [productSelected, setProductSelected] = useState(EMPTY_PRODUCT)
-    
+    const titleEditRef = useRef()
+
     // comportements (gestionnaire de state ou "state handlers")
     const handleAddProduit = (newProduit) => { 
         // 1. copie du tableau
@@ -77,7 +78,8 @@ const OrderPage = () => {
       setNewProduct,
       productSelected,
       setProductSelected,
-      handleEdit
+      handleEdit,
+      titleEditRef,
     }
     
     return ( 
