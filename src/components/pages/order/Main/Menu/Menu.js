@@ -25,6 +25,7 @@ const Menu = () => {
     
     //comportements (gestionnaires d'evenement)
     const handleClick = (idProductClicked) => { 
+        if(!isModeAdmin) return
         const productClickedOn = menu.find((product) => product.id === idProductClicked) ;
         setProductSelected(productClickedOn);
      }
