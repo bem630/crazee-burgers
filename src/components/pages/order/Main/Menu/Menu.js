@@ -19,13 +19,18 @@ const Menu = () => {
         isModeAdmin,
         handleDelete,
         resetMenu,
-        setProductSelected,
         productSelected,
+        setProductSelected,
+        setIsCollapsed,
+        setcurrentTabSelected,
+        
     } = useContext(OrderContext);
     
     //comportements (gestionnaires d'evenement)
     const handleClick = (idProductClicked) => { 
         if(!isModeAdmin) return
+        setIsCollapsed(false)
+        setcurrentTabSelected("edit")
         const productClickedOn = menu.find((product) => product.id === idProductClicked) ;
         setProductSelected(productClickedOn);
      }
