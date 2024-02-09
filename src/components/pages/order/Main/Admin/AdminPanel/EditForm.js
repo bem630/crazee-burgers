@@ -5,6 +5,7 @@ import styled from "styled-components";
 import ImagePreview from "./ImagePreview";
 import TextInput from "../../../../../reusable-ui/TextInput";
 import { getInputTextsConfig } from "./InputTextConfig";
+import { theme } from "../../../../../../theme";
 
 const EditForm = () => {
     // state
@@ -29,6 +30,11 @@ const EditForm = () => {
                             )
                         ) }
                     
+                </div>
+                <div className="submit">
+                    <span className="sentence">Cliquer sur un produit du menu pour le modifier{" "}
+                        <span className="live-update">en temps réel</span>
+                    </span>
                 </div>
             </EditFormStyled>
      );
@@ -62,6 +68,13 @@ const EditFormStyled = styled.div`
             //width: 50%;
             height: 100%;
         }
+        .sentence {
+            color: ${theme.colors.primary};
+            font-size: ${theme.fonts.size.SM};
+            .live-update {
+                text-decoration: underline;
+  }
+  }
 
 
     }  
