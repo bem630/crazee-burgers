@@ -3,18 +3,19 @@ import { theme } from "../../../../../../theme";
 import OrderContext from "../../../../../../context/OrderContext";
 import { useContext } from "react";
 import { getTabSelected, getTabsConfig } from "../getTabsConfig";
+import { EMPTY_PRODUCT } from "../../../../../../enums/product";
 //import { MdYard } from "react-icons/md";
 
 
 const AdminPanel = () => {
-    const { currentTabSelected} = useContext(OrderContext);
-    
-    const tab = getTabsConfig(currentTabSelected);
+    const { currentTabSelected, productSelected} = useContext(OrderContext);
+    const hasAlreadyBeenClicked = productSelected !== EMPTY_PRODUCT
+    const tab = getTabsConfig(hasAlreadyBeenClicked);
     const tabSelected = getTabSelected(tab, currentTabSelected);
     
     return ( 
         <AdminPanelStyled>
-            {currentTabSelected === tabSelected.index && tabSelected.Content}
+            {tabSelected.index && tabSelected.Content}
             {/*{isAddSelected && "Ajouter un produit"}
             {isEditSelected && "Modifier un produit"}*/}
         </AdminPanelStyled>

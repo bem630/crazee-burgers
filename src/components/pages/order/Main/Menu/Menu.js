@@ -47,9 +47,8 @@ const Menu = () => {
     const handleCardDelete = (event, idProductToDelete) => { 
         event.stopPropagation()
         handleDelete(idProductToDelete)
-        idProductToDelete === productSelected.id && titleEditRef.current.focus()
-        setProductSelected(EMPTY_PRODUCT)
-        //titleEditRef.current.focus()
+        idProductToDelete === productSelected.id && setProductSelected(EMPTY_PRODUCT)
+        titleEditRef.current.focus()
      }
 
     return ( 
