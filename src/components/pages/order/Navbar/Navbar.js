@@ -7,7 +7,7 @@ import { refreshPage } from "../../../../utils/window";
 const Navbar = () => {
     return (
         <NavbarStyled>
-            <Logo className={"logo-order-page"} onClick={refreshPage}/>
+            <Logo className={"logo-order-page"} onClick={() => refreshPage()}/>
             <NavbarRightSide />
         </NavbarStyled>
      );

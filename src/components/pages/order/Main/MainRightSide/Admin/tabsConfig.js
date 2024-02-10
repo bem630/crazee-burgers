@@ -2,8 +2,9 @@ import { AiOutlinePlus } from "react-icons/ai";
 import { MdModeEditOutline } from "react-icons/md";
 import AddForm from "./AdminPanel/AddForm";
 import EditForm from "./AdminPanel/EditForm";
+import HintMessage from "./AdminPanel/HintMessage";
 
-export const getTabsConfig = (currentTabSelected) => [
+export const getTabsConfig = (hasAlreadyBeenClicked) => [
     /*{
         index: "chevronUpDown",
         label: "",
@@ -15,7 +16,7 @@ export const getTabsConfig = (currentTabSelected) => [
         index: "add",
         label: "Ajouter un produit",
         Icon: <AiOutlinePlus />,
-        Content: <AddForm/>
+        Content: <AddForm/>,
        // onClick: ()=> selectTab("add"),
         //className: currentTabSelected === "add" ? "is-active" : "",
        // className: isAddSelected ? "is-active" : "",
@@ -24,12 +25,13 @@ export const getTabsConfig = (currentTabSelected) => [
         index: "edit",
         label: "Modifier un produit",
         Icon: <MdModeEditOutline />,
-        Content: <EditForm/>
+        Content: hasAlreadyBeenClicked ? <EditForm/> : <HintMessage />,
        //onClick: ()=> selectTab("edit"),
         //className: currentTabSelected === "edit" ? "is-active" : "",
         //className: isEditSelected ? "is-active" : "",
     },
 ];
 
-export const getTabSelected = (tab, currentTabSelected) => 
-tab.find((tabs)=> tabs.index === currentTabSelected )
+export const getTabSelected = (tabs, currentTabSelected) => {
+     return tabs.find((tab)=> tab.index === currentTabSelected )
+}

@@ -1,15 +1,16 @@
 import styled, { css } from "styled-components";
 import { theme } from "../../theme";
+import React from "react";
 
-const TextInput = ({value, onChange, icon,className, version="normal", ...extraProps}) => {
+const TextInput = React.forwardRef( ({value, onChange, icon,className, version="normal", ...extraProps}, ref) => {
     return ( 
         <TextInputStyled className={className} version={version}>
             <div className="icon">{ icon && icon }</div>
-            <input value={value} onChange={onChange} type="text" {...extraProps}  />
+            <input ref={ref} value={value} onChange={onChange} type="text" {...extraProps}  />
         </TextInputStyled>
-     );
+     )
 }
- 
+) 
 export default TextInput;
 
 const TextInputStyled = styled.div`

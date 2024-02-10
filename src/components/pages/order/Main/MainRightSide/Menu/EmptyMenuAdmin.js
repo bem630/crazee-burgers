@@ -1,7 +1,6 @@
-import React from 'react'
 import styled from 'styled-components';
-import { theme } from '../../../../../theme';
-import Button from '../../../../reusable-ui/Button';
+import { theme } from '../../../../../../theme';
+import Button from '../../../../../reusable-ui/Button';
 
 function EmptyMenuAdmin({onReset}) {
     
