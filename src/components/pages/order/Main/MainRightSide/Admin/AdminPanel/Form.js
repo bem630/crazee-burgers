@@ -6,6 +6,10 @@ import { getInputTextsConfig } from './InputTextConfig'
 
 const Form = React.forwardRef(({ product, onSubmit, onChange, children}, ref) => {
 
+  // state (vide)
+
+  // comportements (vide)
+  
     const inputTexts = getInputTextsConfig(product)
 
     //affichage

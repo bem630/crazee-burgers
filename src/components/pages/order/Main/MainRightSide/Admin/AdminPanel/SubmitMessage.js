@@ -5,7 +5,7 @@ import { theme } from '../../../../../../../theme';
 
 function SubmitMessage() {
   return (
-    <SubmitMessageStyled className="submit-message">
+    <SubmitMessageStyled>
         <FiCheck className="icon"/>
         <span className="message">Ajouté avec succès !</span>
     </SubmitMessageStyled>
