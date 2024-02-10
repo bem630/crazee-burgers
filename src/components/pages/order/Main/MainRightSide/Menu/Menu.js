@@ -1,14 +1,13 @@
-//import { useState } from "react";
 import styled from "styled-components";
-import { theme } from "../../../../../theme";
-import Card from "../../../../reusable-ui/Card";
-import { formatPrice } from "../../../../../utils/maths"
+import { theme } from "../../../../../../theme";
+import Card from "../../../../../reusable-ui/Card";
+import { formatPrice } from "../../../../../../utils/maths"
 import { useContext } from "react";
-import OrderContext from "../../../../../context/OrderContext";
+import OrderContext from "../../../../../../context/OrderContext";
 import EmptyMenuAdmin from "./EmptyMenuAdmin";
 import EmptyMenuClient from "./EmptyMenuClient";
 import { checkIfProductIsClicked } from "./helper"
-import { EMPTY_PRODUCT } from "../../../../../enums/product";
+import { EMPTY_PRODUCT } from "../../../../../../enums/product";
 
 const IMAGE_BY_DEFAULT = "/images/coming-soon.png";
 

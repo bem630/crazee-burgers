@@ -1,21 +1,22 @@
 import styled from "styled-components";
-import { theme } from "../../../../../../theme";
-import OrderContext from "../../../../../../context/OrderContext";
+import OrderContext from "../../../../../../../context/OrderContext"
+import { EMPTY_PRODUCT } from "../../../../../../../enums/product"
+import { theme } from "../../../../../../../theme"
 import { useContext } from "react";
-import { getTabSelected, getTabsConfig } from "../getTabsConfig";
-import { EMPTY_PRODUCT } from "../../../../../../enums/product";
-//import { MdYard } from "react-icons/md";
+import { getTabSelected, getTabsConfig } from "../tabsConfig";
+
 
 
 const AdminPanel = () => {
     const { currentTabSelected, productSelected} = useContext(OrderContext);
+
     const hasAlreadyBeenClicked = productSelected !== EMPTY_PRODUCT
-    const tab = getTabsConfig(hasAlreadyBeenClicked);
-    const tabSelected = getTabSelected(tab, currentTabSelected);
+    const tabs = getTabsConfig(hasAlreadyBeenClicked);
+    const tabSelected = getTabSelected(tabs, currentTabSelected);
     
     return ( 
         <AdminPanelStyled>
-            {tabSelected.index && tabSelected.Content}
+            {tabSelected && tabSelected.Content}
             {/*{isAddSelected && "Ajouter un produit"}
             {isEditSelected && "Modifier un produit"}*/}
         </AdminPanelStyled>
@@ -31,6 +32,5 @@ const AdminPanelStyled = styled.div`
     border: 1px solid ${theme.colors.greyLight};
     box-sizing: border-box;
     padding: 30px 5%;
-    margin: 0 10%;
     
 `;

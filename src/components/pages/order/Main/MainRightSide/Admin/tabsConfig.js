@@ -32,5 +32,6 @@ export const getTabsConfig = (hasAlreadyBeenClicked) => [
     },
 ];
 
-export const getTabSelected = (tab, currentTabSelected) => 
-tab.find((tabs)=> tabs.index === currentTabSelected )
+export const getTabSelected = (tabs, currentTabSelected) => {
+     return tabs.find((tab)=> tab.index === currentTabSelected )
+}
