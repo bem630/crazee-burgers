@@ -1,21 +1,22 @@
 import React from 'react'
 import { theme } from '../../../../../../theme'
 import styled from 'styled-components'
+import Header from '../../../../../reusable-ui/Header'
 
 function Footer() {
   return (
-    <FooterStyled>
-        <span>Codé avec ❤️ et React.JS</span>
-    </FooterStyled>
+    <Header>
+        <FooterStyled>
+            <span>Codé avec ❤️ et React.JS</span>
+        </FooterStyled>
+    </Header>
   )
 }
 
 export default Footer
 
 const FooterStyled = styled.div`
-  height: 70px;
-  background: ${theme.colors.background_dark};
-  padding: 0 16px;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
