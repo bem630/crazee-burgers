@@ -1,5 +1,5 @@
-import styled, { css } from "styled-components";
-import { theme } from "../../theme";
+import styled, { css } from "styled-components"
+import { theme } from "../../theme"
 
 export default function Button({ label, Icon, className, version = "normal", onClick }) {
   return (
@@ -54,7 +54,7 @@ const extraStylePrimary = css`
     border: 1px solid white;
     background-color: ${theme.colors.white};
     color: ${theme.colors.primary};
-    &:hover {
+    :hover {
       color: ${theme.colors.white};
       background-color: ${theme.colors.primary};
       border: 1px solid ${theme.colors.white};
