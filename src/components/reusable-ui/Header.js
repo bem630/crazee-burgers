@@ -1,6 +1,6 @@
-import React from 'react'
-import styled from 'styled-components';
-import { theme } from '../../theme';
+import React from "react"
+import styled from "styled-components"
+import { theme } from "../../theme"
 
 export default function Header({ children }) {
   return <HeaderStyled>{children}</HeaderStyled>
