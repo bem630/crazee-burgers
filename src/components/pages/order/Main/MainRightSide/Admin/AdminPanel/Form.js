@@ -1,8 +1,8 @@
-import React from 'react'
-import styled from 'styled-components'
-import ImagePreview from './ImagePreview'
-import TextInput from '../../../../../../reusable-ui/TextInput'
-import { getInputTextsConfig } from './InputTextConfig'
+import React from "react"
+import styled from "styled-components"
+import TextInput from "../../../../../../reusable-ui/TextInput"
+import ImagePreview from "./ImagePreview"
+import { getInputTextsConfig } from "./inputTextConfig"
 
 const Form = React.forwardRef(({ product, onSubmit, onChange, children }, ref) => {
   // state (vide)

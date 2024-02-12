@@ -1,5 +1,5 @@
-import styled, { css } from "styled-components";
-import { theme } from "../../theme";
+import styled, { css } from "styled-components"
+import { theme } from "../../theme"
 
 export default function Button({ label, Icon, className, version = "normal", onClick }) {
   return (

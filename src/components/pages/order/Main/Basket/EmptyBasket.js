@@ -1,22 +1,21 @@
+import React from "react"
 import styled from "styled-components"
 import { theme } from "../../../../../theme"
 
-function BasketBody() {
+export default function EmptyBasket() {
   return (
-    <BasketBodySyled>
-        <span className="empty-message">Votre commande est vide.</span>
-    </BasketBodySyled>
+    <EmptyBasketStyled>
+      <span className="empty-message">Votre commande est vide.</span>
+    </EmptyBasketStyled>
   )
 }
 
-export default BasketBody
-
-const BasketBodySyled = styled.div`
+const EmptyBasketStyled = styled.div`
   flex: 1;
-    background: ${theme.colors.background_white};
-    box-shadow: ${theme.shadows.basket};
+  background: ${theme.colors.background_white};
+  box-shadow: ${theme.shadows.basket};
 
-    .empty-message {
+  .empty-message {
     display: flex;
     height: calc(95vh - 10vh - 70px - 70px);
     text-align: center;
@@ -29,4 +28,4 @@ const BasketBodySyled = styled.div`
     font-size: ${theme.fonts.size.P4};
     color: ${theme.colors.greyBlue};
   }
-`;
+`

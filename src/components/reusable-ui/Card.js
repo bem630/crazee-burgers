@@ -1,7 +1,7 @@
-import styled, { css } from "styled-components";
-import { theme } from "../../theme";
-import Button from "./Button";
-import { TiDelete } from "react-icons/ti";
+import styled, { css } from "styled-components"
+import { theme } from "../../theme"
+import Button from "./Button"
+import { TiDelete } from "react-icons/ti"
 
 export default function Card({
   title,
@@ -12,6 +12,7 @@ export default function Card({
   onClick,
   isHoverable,
   isSelected,
+  onAdd,
 }) {
   // state (vide)
 
@@ -40,11 +41,7 @@ export default function Card({
           <div className="description">
             <div className="left-description">{leftDescription}</div>
             <div className="right-description">
-              <Button
-                className="primary-button"
-                label={"Ajouter"}
-                onClick={(event) => event.stopPropagation()}
-              />
+              <Button className="primary-button" label={"Ajouter"} onClick={onAdd} />
             </div>
           </div>
         </div>
@@ -54,7 +51,7 @@ export default function Card({
 }
 
 const CardStyled = styled.div`
-  ${({ isHoverable }) => isHoverable && hoverableStyle}
+  ${({ isHoverable }) => isHoverable && hoverableStyle};
   border-radius: ${theme.borderRadius.extraRound};
   /* border: 1px solid red; */
   height: 330px;

@@ -5,13 +5,11 @@ import ErrorPage from './components/pages/error/ErrorPage';
 
 function App() {
   return (
-    <div className="App">
-      <Routes>
-        <Route path='/' element = {<LoginPage/>} />
-        <Route path='/order/:username' element = {<OrderPage/>} />
-        <Route path='*' element = {<ErrorPage/>} />
-      </Routes>
-    </div>
+    <Routes>
+      <Route path="/" element={<LoginPage />} />
+      <Route path="/order/:username" element={<OrderPage />} />
+      <Route path="*" element={<ErrorPage />} />
+    </Routes>
   );
 }
 
