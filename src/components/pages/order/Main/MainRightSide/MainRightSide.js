@@ -5,23 +5,20 @@ import Admin from "./Admin/Admin"
 import Menu from "./Menu/Menu"
 import OrderContext from "../../../../../context/OrderContext"
 
-function MainRightSide() {
-    const {isModeAdmin} = useContext(OrderContext);
+export default function MainRightSide() {
+  const { isModeAdmin } = useContext(OrderContext)
 
   return (
     <MainRightSideStyled>
-        <Menu/>
-        {isModeAdmin && <Admin />}
+      <Menu />
+      {isModeAdmin && <Admin />}
     </MainRightSideStyled>
   )
 }
-
-export default MainRightSide
 
 const MainRightSideStyled = styled.div`
   position: relative;
   overflow-y: hidden;
   display: grid;
-  //border-bottom-left-radius: ${theme.borderRadius.extraRound};
   border-bottom-right-radius: ${theme.borderRadius.extraRound};
 `

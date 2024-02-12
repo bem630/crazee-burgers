@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components';
 import { theme } from '../../../../../../theme';
 
-function EmptyMenuClient() {
+export default function EmptyMenuClient() {
   return (
     <EmptyMenuStyled>
       <span className="title">Victime de notre succès ! :D</span>
@@ -12,18 +12,16 @@ function EmptyMenuClient() {
   )
 }
 
-export default EmptyMenuClient
-
 const EmptyMenuStyled = styled.div`
-    background-color: ${theme.colors.background_white};
-    box-shadow: ${theme.shadows.strong};
-    border-bottom-right-radius: ${theme.borderRadius.extraRound};
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  background-color: ${theme.colors.background_white};
+  box-shadow: ${theme.shadows.strong};
+  border-bottom-right-radius: ${theme.borderRadius.extraRound};
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; // permet de diminuer la largeur du bouton resetMenu
 
-    .title,
+  .title,
   .description {
     text-align: center;
     font-family: "Amatic SC", cursive;
@@ -39,5 +37,4 @@ const EmptyMenuStyled = styled.div`
     font-size: ${theme.fonts.size.P4};
     margin-top: 20px;
   }
-
-`;
+`

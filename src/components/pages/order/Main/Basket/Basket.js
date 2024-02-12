@@ -2,7 +2,7 @@ import styled from "styled-components"
 import BasketBody from "./BasketBody"
 import Footer from "./Footer"
 import Total from "./Total"
-import { formatPrice } from "../../../../../../utils/maths"
+import { formatPrice } from "../../../../../utils/maths"
 
 function Basket() {
   return (

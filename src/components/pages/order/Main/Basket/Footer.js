@@ -1,7 +1,7 @@
 import React from 'react'
-import { theme } from '../../../../../../theme'
+import { theme } from '../../../../../theme'
 import styled from 'styled-components'
-import Header from '../../../../../reusable-ui/Header'
+import Header from '../../../../reusable-ui/Header'
 
 function Footer() {
   return (
