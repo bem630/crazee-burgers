@@ -1,34 +1,32 @@
-import React from 'react'
-import styled from 'styled-components'
-import ImagePreview from './ImagePreview'
-import TextInput from '../../../../../../reusable-ui/TextInput'
-import { getInputTextsConfig } from './InputTextConfig'
+import React from "react"
+import styled from "styled-components"
+import TextInput from "../../../../../../reusable-ui/TextInput"
+import ImagePreview from "./ImagePreview"
+import { getInputTextsConfig } from "./inputTextConfig"
 
-const Form = React.forwardRef(({ product, onSubmit, onChange, children}, ref) => {
-
+const Form = React.forwardRef(({ product, onSubmit, onChange, children }, ref) => {
   // state (vide)
 
   // comportements (vide)
-  
-    const inputTexts = getInputTextsConfig(product)
 
-    //affichage
+  const inputTexts = getInputTextsConfig(product)
+
+  // affichage
   return (
     <FormStyled onSubmit={onSubmit}>
-        <ImagePreview imageSource={product.imageSource} title={product.title}/>
-
-        <div className="input-fields">
-        {inputTexts.map ((input) => (
-            <TextInput 
-                {...input} 
-                key={input.id} 
-                onChange={onChange} 
-                version="minimalist" 
-                ref ={ ref && input.name === "title" ? ref: null} />
-            )
-            ) }
-            </div>
-            <div className="form-footer">{children}</div>
+      <ImagePreview imageSource={product.imageSource} title={product.title} />
+      <div className="input-fields">
+        {inputTexts.map((input) => (
+          <TextInput
+            {...input}
+            key={input.id}
+            onChange={onChange}
+            version="minimalist"
+            ref={ref && input.name === "title" ? ref : null}
+          />
+        ))}
+      </div>
+      <div className="form-footer">{children}</div>
     </FormStyled>
   )
 })

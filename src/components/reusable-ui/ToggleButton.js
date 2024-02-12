@@ -1,11 +1,11 @@
 import React from "react"
 import styled from "styled-components"
-import { theme } from "../../../../theme"
+import { theme } from "../../theme"
 
 export default function ToggleButton({
   isChecked,
   onToggle,
-  labelIfChecked   = "Fermer",
+  labelIfChecked = "Fermer",
   labelIfUnchecked = "Ouvrir",
 }) {
   return (

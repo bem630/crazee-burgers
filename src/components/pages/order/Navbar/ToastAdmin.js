@@ -1,19 +1,18 @@
 import styled from "styled-components";
 import { theme } from "../../../../theme";
 import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css"
 
-const ToastAdmin = () => {
-    return ( 
-        <ToastAdminStyled>
-            <ToastContainer className="toaster" bodyClassName="body-toast" />
-        </ToastAdminStyled>
-     );
+export default function ToastAdmin() {
+  return (
+    <ToastAdminStyled>
+      <ToastContainer className="toaster" bodyClassName="body-toast" />
+    </ToastAdminStyled>
+  )
 }
- 
-export default ToastAdmin;
 
 const ToastAdminStyled = styled.div`
-    .toaster {
+  .toaster {
     max-width: 300px;
   }
 
@@ -30,5 +29,4 @@ const ToastAdminStyled = styled.div`
       line-height: 1.3em;
     }
   }
-  
-`;
+`

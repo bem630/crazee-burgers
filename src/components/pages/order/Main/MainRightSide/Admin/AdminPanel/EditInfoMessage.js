@@ -2,7 +2,7 @@ import React from 'react'
 import { theme } from '../../../../../../../theme'
 import styled from 'styled-components'
 
-function EditInfoMessage() {
+export default function EditInfoMessage() {
   return (
     <EditInfoMessageStyled className="sentence">
       Cliquer sur un produit du menu pour le modifier{" "}
@@ -10,8 +10,6 @@ function EditInfoMessage() {
     </EditInfoMessageStyled>
   )
 }
-
-export default EditInfoMessage
 
 const EditInfoMessageStyled = styled.span`
   color: ${theme.colors.primary};

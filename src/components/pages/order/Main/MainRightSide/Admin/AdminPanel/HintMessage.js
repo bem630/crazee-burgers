@@ -2,16 +2,14 @@ import { HiCursorClick } from "react-icons/hi";
 import styled from 'styled-components';
 import { theme } from '../../../../../../../theme';
 
-function HintMessage() {
+export default function HintMessage() {
   return (
     <HintMessageStyled>
-        <span>Cliquer sur un produit pour le modifier</span>
-        <HiCursorClick />
+      <span className="hint">Cliquer sur un produit pour le modifier</span>
+      <HiCursorClick />
     </HintMessageStyled>
   )
 }
-
-export default HintMessage
 
 const HintMessageStyled = styled.div`
   display: flex;
@@ -26,4 +24,4 @@ const HintMessageStyled = styled.div`
   span {
     margin-right: 10px;
   }
-`;
+`
